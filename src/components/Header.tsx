@@ -7,9 +7,6 @@ const navItems = [
   { href: '/', label: 'Accueil' },
   { href: '/solution', label: 'Solution' },
   { href: '/swipe-jeux', label: 'Mini-Jeux' },
-  { href: '/impact', label: 'Impact' },
-  { href: '/deploiement', label: 'Déploiement' },
-  { href: '/contact', label: 'Contact' },
 ];
 
 export default function Header() {
