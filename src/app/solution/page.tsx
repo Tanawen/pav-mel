@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Notre Solution",
@@ -37,11 +36,9 @@ export default function SolutionPage() {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <div className="flex items-center gap-4 mb-6">
-                <Image
-                  src="/logo-mel.png"
+                <img
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/logo-mel.png`}
                   alt="Métropole Européenne de Lille"
-                  width={60}
-                  height={58}
                   className="h-14 w-auto"
                 />
                 <span className="text-lg font-semibold text-gray-700">Métropole Européenne de Lille</span>

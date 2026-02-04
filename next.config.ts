@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   basePath: isGitHubPages ? "/pav-mel" : "",
   assetPrefix: isGitHubPages ? "/pav-mel" : "",
+  env: {
+    NEXT_PUBLIC_BASE_PATH: isGitHubPages ? "/pav-mel" : "",
+  },
   images: {
     unoptimized: true,
   },

@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useState } from 'react';
 
 const navItems = [
@@ -27,11 +26,9 @@ export default function Header() {
             aria-label="Accueil PAV Pédagogiques MEL"
           >
             {/* MEL Logo */}
-            <Image
-              src="/logo-mel.png"
+            <img
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH}/logo-mel.png`}
               alt="Métropole Européenne de Lille"
-              width={40}
-              height={40}
               className="h-8 w-auto"
             />
             <div className="h-6 w-px bg-gray-300" />
