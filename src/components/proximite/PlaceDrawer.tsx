@@ -66,7 +66,7 @@ export default function PlaceDrawer({
                 : "bg-amber-100 text-amber-700"
             }`}
           >
-            {place.type === "verre" ? "🥃 PAV Verre" : "🗑️ Déchèterie"}
+            {place.type === "verre" ? "🍾 PAV Verre" : "🗑️ Déchèterie"}
           </span>
 
           <h2 className="text-xl font-bold text-gray-900 mb-1">

@@ -36,7 +36,7 @@ function pinIcon(emoji: string, bg: string) {
 }
 
 const ICONS = {
-  verre: pinIcon("🥃", "#10b981"),
+  verre: pinIcon("🍾", "#10b981"),
   decheterie: pinIcon("🗑️", "#f59e0b"),
   user: divIcon({
     className: "",

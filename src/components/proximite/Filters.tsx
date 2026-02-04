@@ -24,7 +24,7 @@ const OPTIONS: {
   {
     value: "verre",
     label: "PAV Verre",
-    icon: "🥃",
+    icon: "🍾",
     active: "bg-emerald-600 text-white",
     idle: "bg-emerald-50 text-emerald-700 hover:bg-emerald-100",
   },

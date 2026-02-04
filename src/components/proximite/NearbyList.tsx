@@ -51,7 +51,7 @@ export default function NearbyList({
                       : "bg-amber-100 text-amber-700"
                   }`}
                 >
-                  {p.type === "verre" ? "🥃 Verre" : "🗑️ Déchèterie"}
+                  {p.type === "verre" ? "🍾 Verre" : "🗑️ Déchèterie"}
                 </span>
                 <span className="text-xs text-gray-400 font-medium">
                   {formatDistance(p.distance)}
