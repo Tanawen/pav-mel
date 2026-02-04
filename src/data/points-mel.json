@@ -1,0 +1,160 @@
+[
+  {
+    "id": 1,
+    "name": "PAV Verre – Place de la République",
+    "type": "verre",
+    "address": "Place de la République, 59000 Lille",
+    "lat": 50.6348,
+    "lng": 3.0588,
+    "notes": "Bouteilles et bocaux uniquement"
+  },
+  {
+    "id": 2,
+    "name": "PAV Verre – Rue du Faubourg Saint-Nicolas",
+    "type": "verre",
+    "address": "Rue du Faubourg Saint-Nicolas, 59000 Lille",
+    "lat": 50.6118,
+    "lng": 3.0395,
+    "notes": "Bouteilles uniquement"
+  },
+  {
+    "id": 3,
+    "name": "PAV Verre – Place du Vieux Marché",
+    "type": "verre",
+    "address": "Place du Vieux Marché, 59000 Lille",
+    "lat": 50.638,
+    "lng": 3.0528,
+    "notes": "Bouteilles et bocaux"
+  },
+  {
+    "id": 4,
+    "name": "PAV Verre – Avenue Victor Hugo",
+    "type": "verre",
+    "address": "Avenue Victor Hugo, 59000 Lille",
+    "lat": 50.6415,
+    "lng": 3.0712,
+    "notes": "Bouteilles uniquement"
+  },
+  {
+    "id": 5,
+    "name": "PAV Verre – Rue de la Paix",
+    "type": "verre",
+    "address": "Rue de la Paix, 59100 Roubaix",
+    "lat": 50.6912,
+    "lng": 3.1754,
+    "notes": "Bouteilles et bocaux uniquement"
+  },
+  {
+    "id": 6,
+    "name": "PAV Verre – Rue Jean Jaurès",
+    "type": "verre",
+    "address": "Rue Jean Jaurès, 59100 Roubaix",
+    "lat": 50.6948,
+    "lng": 3.171,
+    "notes": "Bouteilles uniquement"
+  },
+  {
+    "id": 7,
+    "name": "PAV Verre – Boulevard de la Liberté",
+    "type": "verre",
+    "address": "Boulevard de la Liberté, 59200 Tourcoing",
+    "lat": 50.7185,
+    "lng": 3.148,
+    "notes": "Bouteilles et bocaux uniquement"
+  },
+  {
+    "id": 8,
+    "name": "PAV Verre – Rue du Nord",
+    "type": "verre",
+    "address": "Rue du Nord, 59200 Tourcoing",
+    "lat": 50.722,
+    "lng": 3.152,
+    "notes": "Bouteilles uniquement"
+  },
+  {
+    "id": 9,
+    "name": "PAV Verre – Avenue du Général de Gaulle",
+    "type": "verre",
+    "address": "Avenue du Général de Gaulle, 59120 Villeneuve-d'Ascq",
+    "lat": 50.6572,
+    "lng": 3.1198,
+    "notes": "Bouteilles et bocaux uniquement"
+  },
+  {
+    "id": 10,
+    "name": "PAV Verre – Rue des Roses",
+    "type": "verre",
+    "address": "Rue des Roses, 59120 Villeneuve-d'Ascq",
+    "lat": 50.6545,
+    "lng": 3.1085,
+    "notes": "Bouteilles uniquement"
+  },
+  {
+    "id": 11,
+    "name": "PAV Verre – Rue du Marché",
+    "type": "verre",
+    "address": "Rue du Marché, 59700 Marcq-en-Barœul",
+    "lat": 50.6795,
+    "lng": 3.0872,
+    "notes": "Bouteilles et bocaux"
+  },
+  {
+    "id": 12,
+    "name": "PAV Verre – Rue de l'Église",
+    "type": "verre",
+    "address": "Rue de l'Église, 59700 Marcq-en-Barœul",
+    "lat": 50.676,
+    "lng": 3.082,
+    "notes": "Bouteilles uniquement"
+  },
+  {
+    "id": 13,
+    "name": "Déchèterie de Lille",
+    "type": "decheterie",
+    "address": "Rue des Chemins Verts, 59000 Lille",
+    "lat": 50.6055,
+    "lng": 3.0195,
+    "hours": "Lun–Ven 8h–18h, Sam 9h–17h",
+    "notes": "Tous types de déchets acceptés"
+  },
+  {
+    "id": 14,
+    "name": "Déchèterie de Roubaix",
+    "type": "decheterie",
+    "address": "Rue de la Zone Industrielle, 59100 Roubaix",
+    "lat": 50.694,
+    "lng": 3.2045,
+    "hours": "Lun–Sam 9h–17h",
+    "notes": "Encombrants, électroménagers, déchets verts"
+  },
+  {
+    "id": 15,
+    "name": "Déchèterie de Tourcoing",
+    "type": "decheterie",
+    "address": "Avenue de la Gare, 59200 Tourcoing",
+    "lat": 50.7255,
+    "lng": 3.158,
+    "hours": "Mar–Sam 8h30–17h30",
+    "notes": "Tous types de déchets. Fermée les jours fériés"
+  },
+  {
+    "id": 16,
+    "name": "Déchèterie de Villeneuve-d'Ascq",
+    "type": "decheterie",
+    "address": "Rue de la Concorde, 59120 Villeneuve-d'Ascq",
+    "lat": 50.652,
+    "lng": 3.135,
+    "hours": "Lun–Ven 9h–17h, Sam 10h–16h",
+    "notes": "Encombrants et déchets dangereux acceptés"
+  },
+  {
+    "id": 17,
+    "name": "Déchèterie de Marcq-en-Barœul",
+    "type": "decheterie",
+    "address": "Boulevard du Maréchal Foch, 59700 Marcq-en-Barœul",
+    "lat": 50.683,
+    "lng": 3.075,
+    "hours": "Lun–Sam 8h–17h",
+    "notes": "Verre, plastique, encombrants"
+  }
+]

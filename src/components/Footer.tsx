@@ -26,6 +26,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/proximite" className="hover:text-emerald-400 transition-colors">
+                  Points de dépôt
+                </Link>
+              </li>
+              <li>
                 <Link href="/demo" className="hover:text-emerald-400 transition-colors">
                   Tester le tri
                 </Link>
