@@ -6,6 +6,7 @@ import { useState } from 'react';
 const navItems = [
   { href: '/', label: 'Accueil' },
   { href: '/solution', label: 'Solution' },
+  { href: '/assistant-tri', label: 'Assistant tri' },
   { href: '/proximite', label: 'Proximité' },
   { href: '/swipe-jeux', label: 'Mini-Jeux' },
 ];

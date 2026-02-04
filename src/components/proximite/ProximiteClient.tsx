@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback, useMemo, useEffect, useRef } from "react";
+import { useSearchParams } from "next/navigation";
 import dynamic from "next/dynamic";
 import pointsData from "@/data/points-mel.json";
 import {
@@ -32,9 +33,14 @@ type GeoStatus = "idle" | "pending" | "denied" | "unavailable";
 
 export default function ProximiteClient() {
   const places = pointsData as PointMEL[];
+  const searchParams = useSearchParams();
 
   const [userPos, setUserPos] = useState<{ lat: number; lng: number } | null>(null);
-  const [filter, setFilter] = useState<FilterType>("all");
+  const [filter, setFilter] = useState<FilterType>(() => {
+    const param = searchParams.get("filter");
+    if (param === "verre" || param === "decheterie") return param;
+    return "all";
+  });
   const [selectedPlace, setSelectedPlace] = useState<PointMEL | null>(null);
   const [geoStatus, setGeoStatus] = useState<GeoStatus>("idle");
   const [search, setSearch] = useState("");

@@ -1,0 +1,832 @@
+[
+  {
+    "id": "bouteille-plastique",
+    "labels": ["bouteille plastique", "bouteille eau", "bouteille jus", "bouteille soda", "bouteille boisson"],
+    "category": "jaune",
+    "binLabel": "Bac jaune — Emballages & papiers",
+    "instructions": "Videz et rincez la bouteille puis mettez-la dans le bac jaune. Le bouchon reste dessus.",
+    "tips": "Une bouteille propre se recycle mieux et évite la contamination du bac.",
+    "dangerLevel": null,
+    "related": ["sachet plastique", "barquette plastique", "film plastique"]
+  },
+  {
+    "id": "pot-yaourt",
+    "labels": ["pot yaourt", "pot de yaourt", "yaourt", "fromage frais"],
+    "category": "jaune",
+    "binLabel": "Bac jaune — Emballages & papiers",
+    "instructions": "Rincez rapidement le pot puis mettez-le dans le bac jaune. Même légèrement souillé, il reste recyclable.",
+    "tips": "Vous n'êtes pas obligé de nettoyer parfaitement — un rinçage rapide suffit.",
+    "dangerLevel": null,
+    "related": ["barquette plastique", "boîte de conserve"]
+  },
+  {
+    "id": "carton-pizza-propre",
+    "labels": ["carton pizza propre", "carton pizza", "boîte pizza propre", "pizza carton"],
+    "category": "jaune",
+    "binLabel": "Bac jaune — Emballages & papiers",
+    "instructions": "Un carton pizza propre (pas de tache de gras) va dans le bac jaune comme tout autre carton.",
+    "tips": "Regardez le dessous du carton : s'il est propre, il peut être recyclé sans problème.",
+    "dangerLevel": null,
+    "related": ["carton pizza sale", "emballage carton"]
+  },
+  {
+    "id": "canette",
+    "labels": ["canette", "canette metallique", "biere canette", "soda canette", "aluminium canette"],
+    "category": "jaune",
+    "binLabel": "Bac jaune — Emballages & papiers",
+    "instructions": "Videz la canette puis mettez-la dans le bac jaune. Elle sera triée automatiquement à l'usine de tri.",
+    "tips": "Les canettes sont faites en aluminium — un des matériaux les plus recyclables !",
+    "dangerLevel": null,
+    "related": ["bouteille plastique", "capsule café"]
+  },
+  {
+    "id": "barquette-plastique",
+    "labels": ["barquette plastique", "barquette", "barquette viande", "barquette fruits", "barquette salade"],
+    "category": "jaune",
+    "binLabel": "Bac jaune — Emballages & papiers",
+    "instructions": "Rincez la barquette puis mettez-la dans le bac jaune. Elle sera triée à l'usine selon sa matière.",
+    "tips": "Même les barquettes avec un fond de sauce peuvent être rincées et recyclées.",
+    "dangerLevel": null,
+    "related": ["pot yaourt", "film plastique"]
+  },
+  {
+    "id": "enveloppe-papier",
+    "labels": ["enveloppe", "lettre", "courrier", "enveloppe papier"],
+    "category": "jaune",
+    "binLabel": "Bac jaune — Emballages & papiers",
+    "instructions": "Les envelopes en papier vont dans le bac jaune. Retirez la fenêtre en plastique si elle est détachable.",
+    "tips": "Si l'enveloppe a une fenêtre plastique collée, vous pouvez quand même la mettre dans le jaune.",
+    "dangerLevel": null,
+    "related": ["journal", "cahier"]
+  },
+  {
+    "id": "journal-magazine",
+    "labels": ["journal", "magazine", "revue", "hebdo", "mensuel", "journal papier"],
+    "category": "jaune",
+    "binLabel": "Bac jaune — Emballages & papiers",
+    "instructions": "Journals et magazines vont dans le bac jaune. Pas besoin de retirer les agrafes.",
+    "tips": "Le papier de presse est très bien recyclé — chaque journal peut être recyclé plusieurs fois.",
+    "dangerLevel": null,
+    "related": ["cahier", "livre", "papier"]
+  },
+  {
+    "id": "tube-dentifrice",
+    "labels": ["tube dentifrice", "dentifrice", "tube plastique", "dentifrice tube"],
+    "category": "jaune",
+    "binLabel": "Bac jaune — Emballages & papiers",
+    "instructions": "Le tube de dentifrice va dans le bac jaune une fois vidé. Pas besoin de le couper.",
+    "tips": "Même si un peu de dentifrice reste au fond, vous pouvez quand même le recycler.",
+    "dangerLevel": null,
+    "related": ["shampooing", "film plastique"]
+  },
+  {
+    "id": "film-plastique",
+    "labels": ["film plastique", "film cuisine", "papier film", "cellophane", "film transparent"],
+    "category": "jaune",
+    "binLabel": "Bac jaune — Emballages & papiers",
+    "instructions": "Le film plastique va dans le bac jaune. Il sera trié à l'usine de tri.",
+    "tips": "Retirez le film des barquettes avant de mettre la barquette au recyclage.",
+    "dangerLevel": null,
+    "related": ["sachet plastique", "barquette plastique", "plastique bulles"]
+  },
+  {
+    "id": "boite-conserve",
+    "labels": ["boîte conserve", "conserve", "boîte metal", "thon boîte", "sardines", "haricots verts"],
+    "category": "jaune",
+    "binLabel": "Bac jaune — Emballages & papiers",
+    "instructions": "Videz et rincez la boîte de conserve, puis mettez-la dans le bac jaune.",
+    "tips": "Les boîtes en acier sont très bien recyclées. Un rinçage rapide suffit.",
+    "dangerLevel": null,
+    "related": ["canette", "papier aluminium"]
+  },
+  {
+    "id": "brique-alimentaire",
+    "labels": ["brique alimentaire", "brique", "Tetra Pak", "jus brique", "lait brique", "brique jus"],
+    "category": "jaune",
+    "binLabel": "Bac jaune — Emballages & papiers",
+    "instructions": "Les briques alimentaires (Tetra Pak) vont dans le bac jaune après avoir été vidées.",
+    "tips": "Même si un peu de liquide reste, un rinçage rapide suffit avant de recycler.",
+    "dangerLevel": null,
+    "related": ["bouteille plastique", "sachet plastique"]
+  },
+  {
+    "id": "sachet-plastique",
+    "labels": ["sachet plastique", "sachet", "sac plastique", "sac courses plastique"],
+    "category": "jaune",
+    "binLabel": "Bac jaune — Emballages & papiers",
+    "instructions": "Les sachets en plastique vont dans le bac jaune une fois vidés et rincés.",
+    "tips": "Préférez les sacs réutilisables pour les courses — moins de déchets !",
+    "dangerLevel": null,
+    "related": ["film plastique", "bouteille plastique"]
+  },
+  {
+    "id": "flacon-shampooing",
+    "labels": ["shampooing", "shampoo", "flacon shampooing", "produit toilette", "gel douche", "creme corps"],
+    "category": "jaune",
+    "binLabel": "Bac jaune — Emballages & papiers",
+    "instructions": "Les flacons en plastique de shampooing, gel douche vont dans le bac jaune après vidage.",
+    "tips": "Retournez le flacon et ajoutez un peu d'eau pour en utiliser la dernière dose !",
+    "dangerLevel": null,
+    "related": ["bouteille plastique", "tube dentifrice"]
+  },
+  {
+    "id": "carton-oeuf",
+    "labels": ["carton oeufs", "carton oeuf", "oeufs carton", "emballage oeufs", "boîte oeufs"],
+    "category": "jaune",
+    "binLabel": "Bac jaune — Emballages & papiers",
+    "instructions": "Le carton d'œufs en carton va dans le bac jaune. Les cartons en mousse (polystyrène) vont dans les ordures.",
+    "tips": "Faites attention à la matière : carton = jaune, polystyrène = ordures.",
+    "dangerLevel": null,
+    "related": ["polystyrène", "emballage carton"]
+  },
+  {
+    "id": "papier-aluminium",
+    "labels": ["papier aluminium", "aluminium", "papier cuisson", "foil aluminium"],
+    "category": "jaune",
+    "binLabel": "Bac jaune — Emballages & papiers",
+    "instructions": "Le papier aluminium va dans le bac jaune. Froissez-le en boule pour le mettre plus facilement.",
+    "tips": "Un papier aluminium très souillé peut être mis dans les ordures plutôt que de contaminer le recyclage.",
+    "dangerLevel": null,
+    "related": ["canette", "boîte de conserve"]
+  },
+  {
+    "id": "capsule-cafe-aluminium",
+    "labels": ["capsule cafe", "capsule café", "pod cafe", "capsule aluminium", "Nespresso", "capsule machine cafe"],
+    "category": "jaune",
+    "binLabel": "Bac jaune — Emballages & papiers",
+    "instructions": "Les capsules en aluminium vont dans le bac jaune après avoir été vidées du café usagé.",
+    "tips": "Le marc de café (résidu) peut aller dans le bac marron. Vous pouvez aussi utiliser le programme de reprise du fabricant.",
+    "dangerLevel": null,
+    "related": ["marc café", "brique alimentaire"]
+  },
+  {
+    "id": "plastique-bulles",
+    "labels": ["plastique bulles", "bubble wrap", "papier bulles", "emballage bulles", "bulles plastique"],
+    "category": "jaune",
+    "binLabel": "Bac jaune — Emballages & papiers",
+    "instructions": "Le plastique à bulles va dans le bac jaune. Il sera trié à l'usine.",
+    "tips": "Le plastique à bulles peut aussi être réutilisé pour protéger des objets.",
+    "dangerLevel": null,
+    "related": ["film plastique", "sachet plastique"]
+  },
+  {
+    "id": "emballage-carton",
+    "labels": ["carton", "emballage carton", "boîte carton", "colis carton", "carton Amazon", "carton livraison"],
+    "category": "jaune",
+    "binLabel": "Bac jaune — Emballages & papiers",
+    "instructions": "Le carton d'emballage va dans le bac jaune. Aplatissez-le pour gagner de la place.",
+    "tips": "Retirez le ruban adhésif et le plastique d'emballage avant de recycler le carton.",
+    "dangerLevel": null,
+    "related": ["journal", "cahier", "livre"]
+  },
+  {
+    "id": "cahier",
+    "labels": ["cahier", "papier ecriture", "feuille papier", "papier", "ramette", "papier blanc"],
+    "category": "jaune",
+    "binLabel": "Bac jaune — Emballages & papiers",
+    "instructions": "Le cahier et le papier d'écriture vont dans le bac jaune.",
+    "tips": "Le papier blanc est l'un des plus faciles à recycler. Évitez de le gâcher !",
+    "dangerLevel": null,
+    "related": ["livre", "journal", "stylo"]
+  },
+  {
+    "id": "livre",
+    "labels": ["livre", "roman", "livre scolaire", "manual", "bouquin", "livre occasion"],
+    "category": "jaune",
+    "binLabel": "Bac jaune — Emballages & papiers",
+    "instructions": "Un livre en mauvais état va dans le bac jaune (papier). En bon état, donnez-le à un ami ou à une association.",
+    "tips": "Avant de recycler, pensez à donner votre livre : moins de déchets, plus de lecture !",
+    "dangerLevel": null,
+    "related": ["cahier", "journal", "papier"]
+  },
+  {
+    "id": "serviette-papier-propre",
+    "labels": ["serviette papier propre", "serviette papier", "serviette neuve", "napkin propre"],
+    "category": "jaune",
+    "binLabel": "Bac jaune — Emballages & papiers",
+    "instructions": "Une serviette en papier neuve (non utilisée) va dans le bac jaune.",
+    "tips": "Si elle a été utilisée même légèrement, elle va dans les ordures — voir « serviette usagée ».",
+    "dangerLevel": null,
+    "related": ["serviette papier usagée", "sopalin"]
+  },
+  {
+    "id": "bouteille-verre",
+    "labels": ["bouteille verre", "bouteille en verre", "verre bouteille"],
+    "category": "verre",
+    "binLabel": "Bac vert — Verre",
+    "instructions": "La bouteille en verre vide va dans le bac vert. Retirez le bouchon avant.",
+    "tips": "Videz bien la bouteille avant de la recycler pour éviter la contamination.",
+    "dangerLevel": null,
+    "related": ["bocal verre", "bouteille vin", "verre brisé"]
+  },
+  {
+    "id": "bocal-verre",
+    "labels": ["bocal verre", "bocal", "bocal confiture", "bocal cornichons", "pot confiture verre", "pot verre"],
+    "category": "verre",
+    "binLabel": "Bac vert — Verre",
+    "instructions": "Le bocal en verre vide va dans le bac vert. Retirez le couvercle en métal avant.",
+    "tips": "Rincez le bocal rapidement — les restes de confiture ne gênent pas vraiment, mais c'est plus propre.",
+    "dangerLevel": null,
+    "related": ["bouteille verre", "bouteille vin"]
+  },
+  {
+    "id": "flacon-parfum-verre",
+    "labels": ["flacon parfum", "parfum", "flacon verre", "eau toilette", "parfum verre"],
+    "category": "verre",
+    "binLabel": "Bac vert — Verre",
+    "instructions": "Le flacon de parfum en verre vide va dans le bac vert.",
+    "tips": "Assurez-vous que le flacon est bien en verre et non en plastique avant de recycler.",
+    "dangerLevel": null,
+    "related": ["bouteille verre", "bocal verre"]
+  },
+  {
+    "id": "bouteille-vin",
+    "labels": ["bouteille vin", "vin", "vin verre", "bouteille rouge", "bouteille blanc", "bouteille champagne"],
+    "category": "verre",
+    "binLabel": "Bac vert — Verre",
+    "instructions": "La bouteille de vin vide va dans le bac vert. Retirez l'étiquette et la capsule si possible.",
+    "tips": "Le verre peut être recyclé à l'infini sans perdre de qualité !",
+    "dangerLevel": null,
+    "related": ["bouteille verre", "bocal verre"]
+  },
+  {
+    "id": "reste-alimentaire",
+    "labels": ["reste alimentaire", "restes", "dechets cuisine", "dechets alimentaires", "restes repas"],
+    "category": "biodechets",
+    "binLabel": "Bac marron — Biodéchets",
+    "instructions": "Les restes alimentaires vont dans le bac marron (biodéchets). Ils seront compostés.",
+    "tips": "Vous pouvez mettre les restes dans un sac en papier pour éviter les odeurs.",
+    "dangerLevel": null,
+    "related": ["épluches", "pain", "marc café"]
+  },
+  {
+    "id": "carton-pizza-sale",
+    "labels": ["carton pizza sale", "pizza carton gras", "boîte pizza souillée", "carton pizza gras"],
+    "category": "biodechets",
+    "binLabel": "Bac marron — Biodéchets",
+    "instructions": "Un carton pizza gras ne peut pas être recyclé : la graisse contamine le papier. Il va dans le bac marron.",
+    "tips": "Si le haut du carton est propre, coupez-le : partie propre en jaune, partie sale en marron.",
+    "dangerLevel": null,
+    "related": ["carton pizza propre", "reste alimentaire"]
+  },
+  {
+    "id": "mouchoir-usage",
+    "labels": ["mouchoir", "mouchoir usage", "mouchoir papier", "tissue usage"],
+    "category": "biodechets",
+    "binLabel": "Bac marron — Biodéchets",
+    "instructions": "Le mouchoir usagé va dans le bac marron (biodéchets) car il est biodégradable.",
+    "tips": "Ne pas confondre avec le sopalin usagé qui va dans les ordures — voir « sopalin ».",
+    "dangerLevel": null,
+    "related": ["sopalin", "papier toilette"]
+  },
+  {
+    "id": "sachet-the",
+    "labels": ["sachet the", "the", "sachet infusion", "infusion", "the sachet"],
+    "category": "biodechets",
+    "binLabel": "Bac marron — Biodéchets",
+    "instructions": "Le sachet de thé usagé va dans le bac marron. Il est compostable.",
+    "tips": "Laissez-le refroidir avant de le mettre dans le bac pour éviter les brûlures.",
+    "dangerLevel": null,
+    "related": ["marc café", "reste alimentaire"]
+  },
+  {
+    "id": "coquilles-oeuf",
+    "labels": ["coquilles oeufs", "coquilles oeuf", "coquille oeuf", "oeuf coquille"],
+    "category": "biodechets",
+    "binLabel": "Bac marron — Biodéchets",
+    "instructions": "Les coquilles d'œufs vont dans le bac marron. Elles sont excellentes pour le compost.",
+    "tips": "Écrasez-les avant de les mettre dans le bac — elles se compostent mieux.",
+    "dangerLevel": null,
+    "related": ["reste alimentaire", "épluches"]
+  },
+  {
+    "id": "marc-cafe",
+    "labels": ["marc cafe", "cafe marc", "marc", "residus cafe", "cafe grounds"],
+    "category": "biodechets",
+    "binLabel": "Bac marron — Biodéchets",
+    "instructions": "Le marc de café est compostable et va dans le bac marron (biodéchets).",
+    "tips": "Le marc de café peut aussi être utilisé comme engrais naturel pour votre jardin !",
+    "dangerLevel": null,
+    "related": ["capsule café", "sachet thé", "reste alimentaire"]
+  },
+  {
+    "id": "epluches",
+    "labels": ["epluches", "epluche", "fruits epluche", "legumes epluche", "pomme epluche", "peau fruit"],
+    "category": "biodechets",
+    "binLabel": "Bac marron — Biodéchets",
+    "instructions": "Les épluches de fruits et légumes vont dans le bac marron. Elles sont idéales pour le compost.",
+    "tips": "Coupez les épluches en petits morceaux pour un compostage plus rapide.",
+    "dangerLevel": null,
+    "related": ["reste alimentaire", "banane", "pain"]
+  },
+  {
+    "id": "pain",
+    "labels": ["pain", "pain rassis", "pain sec", "baguette", "pain grille", "pain vieux"],
+    "category": "biodechets",
+    "binLabel": "Bac marron — Biodéchets",
+    "instructions": "Le pain rassis ou périmé va dans le bac marron (biodéchets).",
+    "tips": "Évitez de jeter du pain frais — le pain rassis peut être utilisé pour faire de la soupe ou des atelettes !",
+    "dangerLevel": null,
+    "related": ["reste alimentaire", "épluches"]
+  },
+  {
+    "id": "feuilles-mortes",
+    "labels": ["feuilles mortes", "feuilles", "jardin dechets", "tonte pelouse", "herbe coupee", "dechets jardin"],
+    "category": "biodechets",
+    "binLabel": "Bac marron — Biodéchets",
+    "instructions": "Les feuilles mortes et les tontes de pelouse vont dans le bac marron ou dans un composteur.",
+    "tips": "Vous pouvez aussi les laisser sur le sol en automne — elles forment un paillage naturel.",
+    "dangerLevel": null,
+    "related": ["reste alimentaire", "épluches"]
+  },
+  {
+    "id": "peau-banane",
+    "labels": ["banane", "peau banane", "fruit", "pomme", "orange peau", "peau fruit", "agrume"],
+    "category": "biodechets",
+    "binLabel": "Bac marron — Biodéchets",
+    "instructions": "Les peaux de fruits (banane, pomme, orange…) vont dans le bac marron.",
+    "tips": "Les peaux d'agrumes mettent plus longtemps à se composter — coupez-les en morceaux.",
+    "dangerLevel": null,
+    "related": ["épluches", "reste alimentaire"]
+  },
+  {
+    "id": "herbes-cuisine",
+    "labels": ["herbes", "herbes cuisine", "persil", "basilic", "ciboulette", "epices usagees"],
+    "category": "biodechets",
+    "binLabel": "Bac marron — Biodéchets",
+    "instructions": "Les herbes de cuisine usagées vont dans le bac marron (biodéchets).",
+    "tips": "Les herbes fraîches en excès peuvent aussi être séchées pour une utilisation future.",
+    "dangerLevel": null,
+    "related": ["reste alimentaire", "épluches"]
+  },
+  {
+    "id": "sac-papier-brun",
+    "labels": ["sac papier", "sac brun", "sac courses papier", "papier brun", "sac marche", "sac pain"],
+    "category": "biodechets",
+    "binLabel": "Bac marron — Biodéchets",
+    "instructions": "Le sac en papier brun vide va dans le bac marron (biodéchets), pas dans le jaune.",
+    "tips": "C'est un bon emballage pour mettre les déchets alimentaires dans le bac marron.",
+    "dangerLevel": null,
+    "related": ["reste alimentaire", "épluches"]
+  },
+  {
+    "id": "sopalin-usage",
+    "labels": ["sopalin", "sopalin usage", "essuie main usage", "papier cuisine usage", "serviette cuisine usage"],
+    "category": "ordures",
+    "binLabel": "Bac noir — Ordures ménagères",
+    "instructions": "Le sopalin usagé va dans les ordures ménagères (bac noir), pas dans les biodéchets.",
+    "tips": "⚠️ Ne pas confondre avec le mouchoir usagé qui va dans le bac marron ! Le sopalin imprégné de produits chimiques ne se composte pas.",
+    "dangerLevel": null,
+    "related": ["mouchoir", "serviette papier usagée", "papier toilette"]
+  },
+  {
+    "id": "verre-brise",
+    "labels": ["verre brise", "verre casse", "morceaux verre", "miroir casse", "vitre cassee", "verre en morceaux"],
+    "category": "ordures",
+    "binLabel": "Bac noir — Ordures ménagères",
+    "instructions": "⚠️ Le verre brisé ne va PAS dans le bac vert ! Il va dans les ordures ménagères ou à la déchèterie.",
+    "tips": "Enveloppez les morceaux dans du journal ou du carton pour éviter de vous blesser et de blesser les éboueurs.",
+    "dangerLevel": "medium",
+    "related": ["bouteille verre", "céramique cassée"]
+  },
+  {
+    "id": "ceramique-cassee",
+    "labels": ["ceramique cassee", "assiette cassee", "tasse cassee", "ceramique", "porcelaine", "assiette", "tasse"],
+    "category": "ordures",
+    "binLabel": "Bac noir — Ordures ménagères",
+    "instructions": "Les assiettes et tasses en céramique cassées vont dans les ordures. Ce n'est pas du verre !",
+    "tips": "La céramique contamine le verre recyclé. Enveloppez dans du papier avant de mettre dans le bac.",
+    "dangerLevel": "medium",
+    "related": ["verre brisé", "bouteille verre"]
+  },
+  {
+    "id": "couche-bebe",
+    "labels": ["couche", "couche bebe", "couche usage", "bebe couche", "diaper", "couche jetable"],
+    "category": "ordures",
+    "binLabel": "Bac noir — Ordures ménagères",
+    "instructions": "Les couches bébé usagées vont dans les ordures ménagères (bac noir).",
+    "tips": "Fermez bien la couche avant de la jeter pour limiter les odeurs.",
+    "dangerLevel": null,
+    "related": ["papier toilette"]
+  },
+  {
+    "id": "papier-toilette",
+    "labels": ["papier toilette", "PQ", "papier WC", "rouleau papier", "papier hygienique"],
+    "category": "ordures",
+    "binLabel": "Bac noir — Ordures ménagères",
+    "instructions": "Le papier toilette usagé va dans les ordures ménagères. Il n'est pas recyclable.",
+    "tips": "Le papier toilette ne se composte pas non plus — uniquement dans les ordures.",
+    "dangerLevel": null,
+    "related": ["sopalin", "mouchoir", "couche bébé"]
+  },
+  {
+    "id": "cigarette",
+    "labels": ["cigarette", "cigarette fumee", "megot", "tabac", "megot cigarette"],
+    "category": "ordures",
+    "binLabel": "Bac noir — Ordures ménagères",
+    "instructions": "Le mégot de cigarette va dans les ordures ménagères. Ne pas le jeter par terre !",
+    "tips": "Un seul mégot peut polluer jusqu'à 2 litres d'eau. Utilisez bien une poubelle publique.",
+    "dangerLevel": null,
+    "related": ["stylo"]
+  },
+  {
+    "id": "lame-rasoir",
+    "labels": ["lame rasoir", "rasoir", "rasoir jetable", "lame", "shaver"],
+    "category": "ordures",
+    "binLabel": "Bac noir — Ordures ménagères",
+    "instructions": "La lame de rasoir jetable va dans les ordures ménagères.",
+    "tips": "Enveloppez la lame dans un morceau de carton pour éviter les blessures lors du tri.",
+    "dangerLevel": "medium",
+    "related": ["stylo", "gomme"]
+  },
+  {
+    "id": "stylo-use",
+    "labels": ["stylo", "stylo use", "stylo bic", "crayon", "feutre", "marker", "stylo vide"],
+    "category": "ordures",
+    "binLabel": "Bac noir — Ordures ménagères",
+    "instructions": "Le stylo usé va dans les ordures ménagères.",
+    "tips": "Certains fabricants proposent des programmes de reprise pour les stylos — vérifiez leur site.",
+    "dangerLevel": null,
+    "related": ["gomme", "cahier"]
+  },
+  {
+    "id": "adhesif-ruban",
+    "labels": ["adhesif", "ruban adhesif", "scotch", "tape", "adhesif papier", "ruban colle"],
+    "category": "ordures",
+    "binLabel": "Bac noir — Ordures ménagères",
+    "instructions": "Le ruban adhésif usagé va dans les ordures ménagères.",
+    "tips": "Retirez le ruban adhésif des cartons avant de recycler le carton dans le bac jaune.",
+    "dangerLevel": null,
+    "related": ["emballage carton", "papier cadeau"]
+  },
+  {
+    "id": "papier-emballage-cadeau",
+    "labels": ["papier cadeau", "emballage cadeau", "papier dore", "wrapping paper", "papier argente", "papier noel"],
+    "category": "ordures",
+    "binLabel": "Bac noir — Ordures ménagères",
+    "instructions": "Le papier d'emballage cadeau (doré, argenté, brillant) va dans les ordures. Il n'est pas recyclable.",
+    "tips": "⚠️ Piège classique : ce n'est pas du papier ordinaire ! La couche métallique empêche le recyclage.",
+    "dangerLevel": null,
+    "related": ["emballage carton", "adhésif"]
+  },
+  {
+    "id": "polystyrene-emballage",
+    "labels": ["polystyrene", "mousse", "styrofoam", "mousse emballage", "polystyrene emballage", "mousse plastique"],
+    "category": "ordures",
+    "binLabel": "Bac noir — Ordures ménagères",
+    "instructions": "Le petit polystyrène d'emballage va dans les ordures ménagères, pas dans le bac jaune.",
+    "tips": "⚠️ Le polystyrène contamine le recyclage. Les blocs de grande taille peuvent être portés en déchèterie.",
+    "dangerLevel": null,
+    "related": ["carton oeuf", "emballage carton"]
+  },
+  {
+    "id": "bougie-usagee",
+    "labels": ["bougie", "bougie usage", "cire", "bougie fondue", "bougie usage"],
+    "category": "ordures",
+    "binLabel": "Bac noir — Ordures ménagères",
+    "instructions": "La bougie usagée (cire et mèche) va dans les ordures ménagères.",
+    "tips": "Le verre du porte-bougie, s'il est vide et propre, peut aller dans le bac vert (verre).",
+    "dangerLevel": null,
+    "related": ["sopalin", "stylo"]
+  },
+  {
+    "id": "gomme",
+    "labels": ["gomme", "eraser", "gomme crayon", "gomme usage"],
+    "category": "ordures",
+    "binLabel": "Bac noir — Ordures ménagères",
+    "instructions": "La gomme usagée va dans les ordures ménagères.",
+    "tips": "Les gommes sont très petites — pas besoin de se compliquer, juste ordures.",
+    "dangerLevel": null,
+    "related": ["stylo", "cahier"]
+  },
+  {
+    "id": "serviette-papier-usagee",
+    "labels": ["serviette papier usagee", "serviette usagee", "serviette sale", "napkin usagee"],
+    "category": "ordures",
+    "binLabel": "Bac noir — Ordures ménagères",
+    "instructions": "Une serviette en papier usagée va dans les ordures ménagères, même si peu utilisée.",
+    "tips": "⚠️ Piège : une serviette propre → jaune, une serviette usagée → ordures.",
+    "dangerLevel": null,
+    "related": ["serviette papier propre", "sopalin", "mouchoir"]
+  },
+  {
+    "id": "pot-peinture-vide-sec",
+    "labels": ["pot peinture vide", "pot peinture sec", "peinture pot vide", "pot sec peinture"],
+    "category": "ordures",
+    "binLabel": "Bac noir — Ordures ménagères",
+    "instructions": "Un pot de peinture complètement vide et sec va dans les ordures ménagères.",
+    "tips": "⚠️ Un pot de peinture encore liquide ou humide va à la déchèterie — voir « peinture ».",
+    "dangerLevel": null,
+    "related": ["peinture", "solvant"]
+  },
+  {
+    "id": "pile",
+    "labels": ["pile", "piles", "pile usage", "batterie", "pile AA", "pile AAA", "pile 9V", "pile bouton", "batterie usage"],
+    "category": "decheterie",
+    "binLabel": "Déchèterie / point de collecte",
+    "instructions": "Les piles usagées vont dans un point de collecte spécifique (magasin, mairie) ou en déchèterie. Jamais dans une poubelle ordinaire.",
+    "tips": "Stockez vos piles usagées dans un petit sac jusqu'au dépôt. Ne les jetez PAS dans les ordures.",
+    "dangerLevel": "high",
+    "related": ["batterie voiture", "petit électroménager", "ampoule"]
+  },
+  {
+    "id": "ampoule-led",
+    "labels": ["ampoule LED", "ampoule", "LED", "ampoule lumiere", "ampoule usage"],
+    "category": "decheterie",
+    "binLabel": "Déchèterie / point de collecte",
+    "instructions": "Les ampoules LED vont en déchèterie ou dans un point de collecte spécifique (magasin).",
+    "tips": "Ne les mettez jamais dans les ordures — elles contiennent des métaux lourds.",
+    "dangerLevel": "medium",
+    "related": ["ampoule halogène", "pile", "petit électroménager"]
+  },
+  {
+    "id": "ampoule-haloge",
+    "labels": ["ampoule haloge", "haloge", "ampoule ancienne", "ampoule halogene", "ampoule filament"],
+    "category": "decheterie",
+    "binLabel": "Déchèterie / point de collecte",
+    "instructions": "Les ampoules halogène vont aussi en déchèterie ou point de collecte, comme les LED.",
+    "tips": "⚠️ Les ampoules halogène sont particulièrement fragiles. Enveloppez-les dans du papier.",
+    "dangerLevel": "medium",
+    "related": ["ampoule LED", "pile", "petit électroménager"]
+  },
+  {
+    "id": "aerosol",
+    "labels": ["aerosol", "deodorant", "insecticide", "spray", "aerosol cuisine", "spray nettoyant", "bombe aérosol"],
+    "category": "decheterie",
+    "binLabel": "Déchèterie / point de collecte",
+    "instructions": "Les aérosols vont en déchèterie ou point de collecte. Ils contiennent des gaz sous pression.",
+    "tips": "⚠️ Piège : beaucoup de gens mettent les aérosols dans le jaune — c'est faux ! Ils sont dangereux.",
+    "dangerLevel": "high",
+    "related": ["pile", "peinture", "solvant"]
+  },
+  {
+    "id": "petit-electromenager",
+    "labels": ["petit electromenager", "grille pain", "toaster", "mixer", "blender", "rasoir electrique", "fer cheveux", "cafetiere", "fer repasser", "calculatrice"],
+    "category": "decheterie",
+    "binLabel": "Déchèterie / point de collecte",
+    "instructions": "Les petits électroménagers vont en déchèterie ou dans un magasin qui reprend les appareils électriques.",
+    "tips": "Avant de jeter, pensez à donner votre appareil en bon état à une association ou à un particulier.",
+    "dangerLevel": null,
+    "related": ["téléphone portable", "ordinateur", "aspirateur"]
+  },
+  {
+    "id": "pole-usagee",
+    "labels": ["poêle", "pole", "pole usage", "pole cuisine", "pole a frire", "poele", "poele usage"],
+    "category": "decheterie",
+    "binLabel": "Déchèterie / point de collecte",
+    "instructions": "La poêle usagée va en déchèterie. Elle ne peut pas être recyclée dans les bacs habituels.",
+    "tips": "Si elle est encore en bon état, donnez-la plutôt à un ami ou en association.",
+    "dangerLevel": null,
+    "related": ["casserole", "petit électroménager"]
+  },
+  {
+    "id": "casserole-usagee",
+    "labels": ["casserole", "casserole usage", "cuisine casserole", "pot cuisine", "casserole vieille"],
+    "category": "decheterie",
+    "binLabel": "Déchèterie / point de collecte",
+    "instructions": "La casserole usagée va en déchèterie. Elle ne va pas dans les bacs de recyclage.",
+    "tips": "Une casserole en bon état peut être réutilisée ou donnée avant d'être jetée.",
+    "dangerLevel": null,
+    "related": ["poêle", "petit électroménager"]
+  },
+  {
+    "id": "peinture",
+    "labels": ["peinture", "pot peinture", "peinture mur", "peinture plafond", "paint", "peinture usage"],
+    "category": "decheterie",
+    "binLabel": "Déchèterie",
+    "instructions": "Un pot de peinture encore liquide ou humide va en déchèterie. C'est un déchet dangereux.",
+    "tips": "⚠️ Ne jamais verser de peinture dans l'égout ou dans une poubelle. Un pot vide et SEC peut aller dans les ordures.",
+    "dangerLevel": "high",
+    "related": ["solvant", "pot peinture vide", "antigel"]
+  },
+  {
+    "id": "solvant",
+    "labels": ["solvant", "white spirit", "solvant peinture", "decapant", "solvant usage", "diluant"],
+    "category": "decheterie",
+    "binLabel": "Déchèterie",
+    "instructions": "Les solvants (white spirit, décapant…) sont des déchets dangereux. Ils vont en déchèterie.",
+    "tips": "⚠️ Ne jamais les verser dans l'égout. Conservez-les dans leur emballage d'origine jusqu'au dépôt.",
+    "dangerLevel": "high",
+    "related": ["peinture", "antigel", "carburant"]
+  },
+  {
+    "id": "huile-friture",
+    "labels": ["huile friture", "huile cuisine usage", "huile frite", "huile usage", "huile vegetale usage"],
+    "category": "decheterie",
+    "binLabel": "Déchèterie",
+    "instructions": "L'huile de friture usagée va en déchèterie. Ne la jetez pas dans l'égout.",
+    "tips": "Attendez que l'huile refroidisse, puis mettez-la dans un bocal fermé avant de porter en déchèterie.",
+    "dangerLevel": "medium",
+    "related": ["carton pizza sale", "reste alimentaire"]
+  },
+  {
+    "id": "batterie-voiture",
+    "labels": ["batterie voiture", "batterie auto", "batterie car", "batterie 12V", "accu voiture"],
+    "category": "decheterie",
+    "binLabel": "Déchèterie",
+    "instructions": "La batterie de voiture est un déchet très dangereux. Elle va en déchèterie ou chez un réparador.",
+    "tips": "⚠️ Ne jamais la déballer vous-même. Portez-la directement en déchèterie dans son emballage.",
+    "dangerLevel": "high",
+    "related": ["pile", "carburant", "antigel"]
+  },
+  {
+    "id": "pneu",
+    "labels": ["pneu", "pneumatique", "pneu voiture", "pneu velo", "caoutchouc", "pneu usage"],
+    "category": "decheterie",
+    "binLabel": "Déchèterie",
+    "instructions": "Les pneus usagés vont en déchèterie ou sont repris par le pneumatier.",
+    "tips": "Votre pneumatier est obligé de reprendre vos anciens pneus lors d'un achat — profitez-en !",
+    "dangerLevel": null,
+    "related": ["batterie voiture", "mobilier"]
+  },
+  {
+    "id": "matelas",
+    "labels": ["matelas", "matelas usage", "lit matelas", "sommier", "matelas vieux"],
+    "category": "decheterie",
+    "binLabel": "Déchèterie",
+    "instructions": "Le matelas usagé va en déchèterie. Il peut aussi être collecté par une association.",
+    "tips": "Vous pouvez aussi utiliser un service de collecte à domicile proposé par votre commune.",
+    "dangerLevel": null,
+    "related": ["mobilier", "canapé"]
+  },
+  {
+    "id": "mobilier",
+    "labels": ["mobilier", "meubles", "table", "chaise", "armoire", "etagere", "canapé", "sofa", "bureau", "meuble usage"],
+    "category": "decheterie",
+    "binLabel": "Déchèterie",
+    "instructions": "Le mobilier usagé va en déchèterie ou peut être donné si en bon état.",
+    "tips": "En bon état, donnez votre mobilier à une association caritative plutôt que de le jeter.",
+    "dangerLevel": null,
+    "related": ["matelas", "vélo", "petit électroménager"]
+  },
+  {
+    "id": "velo",
+    "labels": ["velo", "velo usage", "bicycle", "velo usage", "velo a reparer"],
+    "category": "decheterie",
+    "binLabel": "Déchèterie",
+    "instructions": "Un vélo très usagé va en déchèterie. En bon état, donnez-le ou faites-le réparer !",
+    "tips": "Les vélos en bon état peuvent être donnés à des associations. Les pièces sont aussi souvent réutilisables.",
+    "dangerLevel": null,
+    "related": ["mobilier", "petit électroménager"]
+  },
+  {
+    "id": "aspirateur",
+    "labels": ["aspirateur", "aspirateur robot", "vacuum", "aspirateur usage", "aspirateur vieux"],
+    "category": "decheterie",
+    "binLabel": "Déchèterie / point de collecte",
+    "instructions": "L'aspirateur usagé va en déchèterie ou dans un magasin qui reprend les appareils électriques.",
+    "tips": "Les appareils électriques peuvent être repris gratuitement dans certains magasins électronique.",
+    "dangerLevel": null,
+    "related": ["petit électroménager", "téléviseur", "ordinateur"]
+  },
+  {
+    "id": "televiseur",
+    "labels": ["televiseur", "TV", "television", "ecran", "moniteur", "TV usage"],
+    "category": "decheterie",
+    "binLabel": "Déchèterie / point de collecte",
+    "instructions": "Le téléviseur usagé va en déchèterie ou dans un magasin qui reprend les appareils électroniques.",
+    "tips": "Les écrans contiennent des métaux précieux qui peuvent être récupérés lors du recyclage.",
+    "dangerLevel": null,
+    "related": ["ordinateur", "téléphone portable", "aspirateur"]
+  },
+  {
+    "id": "ordinateur",
+    "labels": ["ordinateur", "PC", "laptop", "portable ordinateur", "computer", "bureau ordinateur", "ordinateur usage"],
+    "category": "decheterie",
+    "binLabel": "Déchèterie / point de collecte",
+    "instructions": "L'ordinateur usagé va en déchèterie ou dans un magasin électronique qui reprend les appareils.",
+    "tips": "Avant de vous en débarrasser, effacez vos données personnes (disque dur) pour votre sécurité.",
+    "dangerLevel": null,
+    "related": ["téléphone portable", "téléviseur", "petit électroménager"]
+  },
+  {
+    "id": "telephone-portable",
+    "labels": ["telephone", "portable", "smartphone", "phone", "telephone portable", "mobile", "telephone usage"],
+    "category": "decheterie",
+    "binLabel": "Déchèterie / point de collecte",
+    "instructions": "Le téléphone portable usagé va en déchèterie ou dans un magasin qui reprend les appareils électroniques.",
+    "tips": "Un téléphone en bon état peut être donné ou revendu. Effacez vos données avant de le céder.",
+    "dangerLevel": null,
+    "related": ["ordinateur", "pile", "petit électroménager"]
+  },
+  {
+    "id": "four-micro-onde",
+    "labels": ["four micro onde", "micro onde", "microwave", "four", "four electrique", "four usage"],
+    "category": "decheterie",
+    "binLabel": "Déchèterie / point de collecte",
+    "instructions": "Le four micro-ondes usagé va en déchèterie ou dans un magasin qui reprend les appareils électriques.",
+    "tips": "C'est un petit électroménager — même règle que pour le grille-pain ou le mixer.",
+    "dangerLevel": null,
+    "related": ["petit électroménager", "aspirateur", "téléviseur"]
+  },
+  {
+    "id": "vetement-textile",
+    "labels": ["vetement", "textile", "habit", "clothing", "pantalon", "chemise", "pull", "manteau", "veste", "vetement usage"],
+    "category": "decheterie",
+    "binLabel": "Déchèterie / borne textile",
+    "instructions": "Les vêtements usagés vont dans une borne textile ou en déchèterie. En bon état, donnez-les !",
+    "tips": "En bon état → don (borne, association). Très usagé → borne textile quand même, ils sera trié pour être recyclé en chiffons.",
+    "dangerLevel": null,
+    "related": ["chaussures", "mobilier"]
+  },
+  {
+    "id": "huile-moteur",
+    "labels": ["huile moteur", "huile voiture", "huile engine", "huile usage moteur", "huile minerale"],
+    "category": "decheterie",
+    "binLabel": "Déchèterie",
+    "instructions": "L'huile moteur usagée va en déchèterie. C'est un déchet dangereux.",
+    "tips": "⚠️ Ne jamais verser dans l'égout. Conservez-la dans son conteneur d'origine.",
+    "dangerLevel": "high",
+    "related": ["antigel", "carburant", "solvant"]
+  },
+  {
+    "id": "medicaments",
+    "labels": ["medicaments", "medicament", "pilule", "comprime", "sirop", "medoc", "medicament usage", "medicament perime"],
+    "category": "specifique",
+    "binLabel": "Pharmacie",
+    "instructions": "Les médicaments périmés ou non utilisés se rapportent en pharmacie. Ils ne vont pas dans les ordures.",
+    "tips": "Les pharmacies sont obligées de reprendre vos médicaments. Apportez-les dans leur emballage d'origine.",
+    "dangerLevel": "medium",
+    "related": ["DASRI", "pile"]
+  },
+  {
+    "id": "dasri",
+    "labels": ["DASRI", "dechet activite soins", "aiguille", "seringue", "dechet medical", "sharps", "déchet soins"],
+    "category": "specifique",
+    "binLabel": "Pharmacie / collecte spécifique",
+    "instructions": "Les DASRI (aiguilles, seringes usagées) vont dans un conteneur sharps disponible en pharmacie.",
+    "tips": "⚠️ Ne jamais mettre une aiguille dans une poubelle ordinaire. Demandez un conteneur sharps à votre pharmacien.",
+    "dangerLevel": "high",
+    "related": ["médicaments", "pile"]
+  },
+  {
+    "id": "bonbonne-gaz",
+    "labels": ["bonbonne gaz", "gaz", "bouteille gaz", "propane", "butane", "bonbonne cuisine", "gaz usage"],
+    "category": "specifique",
+    "binLabel": "Point de collecte spécifique",
+    "instructions": "Les bonbonnes de gaz usagées vont dans un point de collecte spécifique (fournisseur, magasin).",
+    "tips": "Votre fournisseur de gaz est tenu de reprendre vos anciennes bonbonnes. Consultez son site.",
+    "dangerLevel": "high",
+    "related": ["carburant", "aérosol"]
+  },
+  {
+    "id": "carburant",
+    "labels": ["carburant", "essence", "diesel", "fuel", "carburant voiture", "carburant usage", "essence usage"],
+    "category": "specifique",
+    "binLabel": "Déchèterie",
+    "instructions": "Le carburant résiduel va en déchèterie dans un conteneur approprié. Jamais dans une poubelle.",
+    "tips": "⚠️ Le carburant est très inflammable. Conservez-le dans son conteneur d'origine fermé.",
+    "dangerLevel": "high",
+    "related": ["solvant", "antigel", "huile moteur"]
+  },
+  {
+    "id": "pesticide",
+    "labels": ["pesticide", "herbicide", "insecticide jardin", "produit jardin", "phytosanitaire", "pesticide usage"],
+    "category": "specifique",
+    "binLabel": "Déchèterie",
+    "instructions": "Les pesticides et herbicides usagés vont en déchèterie. Ce sont des déchets dangereux.",
+    "tips": "⚠️ Ne jamais les verser dans le jardin ou dans l'égout. Gardez-les dans leur emballage d'origine.",
+    "dangerLevel": "high",
+    "related": ["solvant", "peinture", "carburant"]
+  },
+  {
+    "id": "thermometre-mercure",
+    "labels": ["thermometre mercure", "mercure", "thermometre ancien", "thermometre", "mercure thermometre"],
+    "category": "specifique",
+    "binLabel": "Déchèterie / pharmacie",
+    "instructions": "⚠️ Un thermomètre à mercure cassé est une urgence. Ne touchez pas au mercure. Appelez les pompiers ou portez-le en déchèterie.",
+    "tips": "Le mercure est très toxique. En cas de cassure, aérez la pièce et ne touchez pas aux gouttelettes.",
+    "dangerLevel": "high",
+    "related": ["médicaments", "pile"]
+  },
+  {
+    "id": "cartouche-encre",
+    "labels": ["cartouche encre", "cartouche imprimante", "toner", "ink cartridge", "cartouche usage"],
+    "category": "specifique",
+    "binLabel": "Point de collecte spécifique",
+    "instructions": "Les cartouches d'encre usagées vont dans un point de collecte spécifique (magasin, poubelle dédiée).",
+    "tips": "Beaucoup de magasins et de La Poste proposent des points de collecte pour cartouches. Vérifiez.",
+    "dangerLevel": null,
+    "related": ["ordinateur", "stylo"]
+  },
+  {
+    "id": "antigel",
+    "labels": ["antigel", "liquide antigel", "antigel voiture", "coolant", "antigel usage"],
+    "category": "decheterie",
+    "binLabel": "Déchèterie",
+    "instructions": "L'antigel usagé va en déchèterie. C'est un liquide très toxique.",
+    "tips": "⚠️ Ne jamais verser dans l'égout ou sur le sol. Conservez-le dans son conteneur d'origine.",
+    "dangerLevel": "high",
+    "related": ["huile moteur", "solvant", "carburant"]
+  },
+  {
+    "id": "chaussures-usees",
+    "labels": ["chaussures", "chaussures usage", "shoes", "basket", "chaussures vieilles", "paires chaussures"],
+    "category": "decheterie",
+    "binLabel": "Déchèterie / borne textile",
+    "instructions": "Les chaussures très usagées vont en déchèterie ou dans une borne textile.",
+    "tips": "En bon état, donnez-les plutôt à une association. Même très usagées, les bornes textile les acceptent pour être recyclées en chiffons.",
+    "dangerLevel": null,
+    "related": ["vêtement", "textile"]
+  }
+]
