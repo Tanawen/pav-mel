@@ -76,7 +76,6 @@ export default function Home() {
           <div className="text-center max-w-4xl mx-auto">
             {/* Badge */}
             <div className="animate-fade-in-up inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur rounded-full border border-emerald-200 shadow-sm mb-8">
-              <span className="animate-bounce-slow">♻️</span>
               <span className="text-sm font-medium text-emerald-700">Prévention Pédagogique MEL • Innovation tri des déchets</span>
             </div>
 

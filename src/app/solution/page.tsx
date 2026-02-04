@@ -232,7 +232,7 @@ export default function SolutionPage() {
                 },
                 {
                   step: 3,
-                  icon: "♻️",
+                  icon: "✅",
                   title: "Je trie correctement",
                   desc: "Je dépose mes déchets dans la bonne poubelle. Geste simple, résultat concret.",
                 },
@@ -373,7 +373,7 @@ export default function SolutionPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="inline-flex items-center gap-2 px-3 py-1 bg-teal-100 text-teal-700 rounded-full text-sm font-medium mb-4">
-              <span>♻️</span> Gratification
+              <span>✨</span> Gratification
             </span>
             <h2 id="calculator-heading" className="text-2xl md:text-3xl font-bold text-gray-900">
               Le Calculateur de Seconde Vie

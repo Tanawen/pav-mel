@@ -74,7 +74,7 @@ const games = [
     id: 'tri',
     title: "Je trie ou je me trompe ?",
     subtitle: "Règles de tri",
-    icon: "♻️",
+    icon: "🎯",
     color: "from-amber-500 to-orange-600",
     leftLabel: "Erreur",
     rightLabel: "Bon tri",

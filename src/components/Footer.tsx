@@ -7,8 +7,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* About */}
           <div>
-            <h2 className="text-white font-semibold text-lg mb-4 flex items-center gap-2">
-              <span aria-hidden="true">♻️</span>
+            <h2 className="text-white font-semibold text-lg mb-4">
               Prévention Pédagogique MEL
             </h2>
             <p className="text-sm leading-relaxed">
