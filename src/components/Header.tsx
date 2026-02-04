@@ -28,10 +28,10 @@ export default function Header() {
           >
             {/* MEL Logo */}
             <Image
-              src="/logo-mel.svg"
-              alt="MEL"
-              width={48}
-              height={20}
+              src="/logo-mel.png"
+              alt="Métropole Européenne de Lille"
+              width={40}
+              height={40}
               className="h-8 w-auto"
             />
             <div className="h-6 w-px bg-gray-300" />

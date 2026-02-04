@@ -38,7 +38,7 @@ export default function SolutionPage() {
             <div>
               <div className="flex items-center gap-4 mb-6">
                 <Image
-                  src="/logo-mel.svg"
+                  src="/logo-mel.png"
                   alt="Métropole Européenne de Lille"
                   width={60}
                   height={58}
