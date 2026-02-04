@@ -319,6 +319,136 @@ export default function SolutionPage() {
         </div>
       </section>
 
+      {/* Tableau de Bord Hyper-Local */}
+      <section className="py-16 bg-white" aria-labelledby="dashboard-heading">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <span className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium mb-4">
+              <span>🏘️</span> Émulation collective
+            </span>
+            <h2 id="dashboard-heading" className="text-2xl md:text-3xl font-bold text-gray-900">
+              Le Tableau de Bord Hyper-Local
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto mt-3">
+              Créer une émulation collective entre quartiers
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto mb-12">
+            <p className="text-gray-700 leading-relaxed">
+              Le principe des <strong>nudges</strong> — incitations douces — permet de recadrer la motivation du tri. L&apos;usager ne trie plus pour la MEL de façon abstraite : il contribue à la progression de <strong>son quartier</strong>. Un classement dynamique entre quartiers et communes, basé sur la réduction des <strong>Ordures Ménagères Résiduelles (OMR)</strong>, transforme un geste individuel en un mouvement collectif. Dans un contexte d&apos;habitat dense où l&apos;apport volontaire est souvent vécu comme une corvée solitaire, cette mécanique réintroduit le lien social et crée une dynamique d&apos;entraînement entre voisins.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                icon: "📍",
+                title: "Un lien au territoire",
+                desc: "Chaque quartier suit sa propre progression. « Bravo à Wazemmes qui a réduit ses déchets de 5% ce mois-ci » — un message qui ancre le geste dans un espace vécu.",
+              },
+              {
+                icon: "🤝",
+                title: "Une dynamique sociale",
+                desc: "Le classement entre quartiers crée une émulation positive : chacun agit pour que son cercle de vie progresse, pas par obligation, mais par appartenance.",
+              },
+              {
+                icon: "📈",
+                title: "Un impact mesurable",
+                desc: "La réduction des OMR est suivie en temps réel. L'usager voit concrètement comment son quartier évolue mois après mois.",
+              },
+            ].map((item, idx) => (
+              <div key={idx} className="bg-emerald-50 rounded-2xl p-6 border border-emerald-100">
+                <span className="text-3xl block mb-4">{item.icon}</span>
+                <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Calculateur de Seconde Vie */}
+      <section className="py-16 bg-gray-50" aria-labelledby="calculator-heading">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <span className="inline-flex items-center gap-2 px-3 py-1 bg-teal-100 text-teal-700 rounded-full text-sm font-medium mb-4">
+              <span>♻️</span> Gratification
+            </span>
+            <h2 id="calculator-heading" className="text-2xl md:text-3xl font-bold text-gray-900">
+              Le Calculateur de Seconde Vie
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto mt-3">
+              Chaque geste de tri a un équivalent concret dans le patrimoine de la MEL
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto mb-12">
+            <p className="text-gray-700 leading-relaxed">
+              Le <strong>Calculateur de Seconde Vie</strong> convertit le poids des déchets triés en équivalents énergétiques ou matériels directement ancrés dans le patrimoine local de la Métropole Européenne de Lille. L&apos;objectif : rendre chaque geste de tri <strong>immédiatement gratifiant</strong> en montrant à l&apos;usager que son effort se traduit en un impact visible sur son cadre de vie.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            {[
+              {
+                icon: "🥃",
+                category: "Verre",
+                landmark: "Grand'Place de Lille",
+                equivalence: "5 jours d'éclairage",
+                detail: "Le verre trié permet de régénérer de l'énergie qui alimente l'éclairage emblématique de la Grand'Place — un symbole de Lille que chacun connaît.",
+                color: "from-amber-400 to-orange-500",
+                bg: "bg-amber-50",
+                border: "border-amber-200",
+              },
+              {
+                icon: "🌱",
+                category: "Biodéchets",
+                landmark: "Bus V'Lille / Métro",
+                equivalence: "150 m³ de biogaz",
+                detail: "Les biodéchets collectés génèrent du biogaz utilisable pour alimenter les transports en commun V'Lille et le réseau métro de la métropole.",
+                color: "from-green-400 to-emerald-500",
+                bg: "bg-green-50",
+                border: "border-green-200",
+              },
+              {
+                icon: "🧱",
+                category: "Plastique",
+                landmark: "Parc de la Citadelle",
+                equivalence: "25 bancs publics",
+                detail: "Le plastique recyclé est transformé en mobilier urbain — comme les bancs du Parc de la Citadelle, un espace vert emblématique de Lille.",
+                color: "from-blue-400 to-cyan-500",
+                bg: "bg-blue-50",
+                border: "border-blue-200",
+              },
+            ].map((item, idx) => (
+              <div key={idx} className={`bg-white rounded-2xl border ${item.border} shadow-sm overflow-hidden`}>
+                <div className={`h-1.5 bg-gradient-to-r ${item.color}`} />
+                <div className="p-6">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className={`text-2xl w-12 h-12 ${item.bg} rounded-xl flex items-center justify-center`}>{item.icon}</span>
+                    <div>
+                      <span className="text-xs font-bold tracking-widest uppercase text-gray-400">{item.category}</span>
+                      <p className="text-lg font-bold text-gray-900">{item.equivalence}</p>
+                    </div>
+                  </div>
+                  <p className="text-sm font-semibold text-gray-700 mb-1">{item.landmark}</p>
+                  <p className="text-sm text-gray-600 leading-relaxed">{item.detail}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="max-w-3xl mx-auto bg-teal-50 rounded-2xl p-8 border border-teal-100 text-center">
+            <span className="text-3xl block mb-3">✨</span>
+            <h3 className="font-bold text-gray-900 mb-3">L&apos;usager voit, l&apos;usager agit</h3>
+            <p className="text-gray-700 leading-relaxed">
+              La gratification ne repose pas sur des points abstraits : elle se traduit en <strong>équivalents visibles</strong> dans le quotidien de la MEL. Chaque déchet bien trié devient un jour d&apos;éclairage sur la Grand&apos;Place, un trajet en bus, un banc dans un parc. Le geste acquiert un sens immédiat — et c&apos;est ce qui ancre le comportement sur le long terme.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-12 bg-gray-900 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
