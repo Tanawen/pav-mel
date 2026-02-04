@@ -11,15 +11,15 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "PAV Pédagogiques MEL | Tri simplifié pour tous",
-    template: "%s | PAV Pédagogiques MEL",
+    default: "Prévention Pédagogique MEL | Tri simplifié pour tous",
+    template: "%s | Prévention Pédagogique MEL",
   },
   description:
     "Points d'Apport Volontaire pédagogiques et intelligents pour la Métropole Européenne de Lille. Rendre le tri évident, réduire les erreurs, améliorer l'espace public.",
   keywords: ["tri", "déchets", "recyclage", "MEL", "Lille", "PAV", "pédagogique"],
   authors: [{ name: "Projet PAV MEL" }],
   openGraph: {
-    title: "PAV Pédagogiques MEL",
+    title: "Prévention Pédagogique MEL",
     description: "Rendre le tri évident, réduire les erreurs, améliorer l'espace public.",
     locale: "fr_FR",
     type: "website",

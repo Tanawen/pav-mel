@@ -9,7 +9,7 @@ export default function Footer() {
           <div>
             <h2 className="text-white font-semibold text-lg mb-4 flex items-center gap-2">
               <span aria-hidden="true">♻️</span>
-              PAV Pédagogiques MEL
+              Prévention Pédagogique MEL
             </h2>
             <p className="text-sm leading-relaxed">
               Une solution pour rendre le tri plus simple, plus accessible et plus efficace
@@ -42,7 +42,7 @@ export default function Footer() {
             Prototype étudiant — Données illustratives uniquement
           </p>
           <p className="mt-2 text-gray-500">
-            © {new Date().getFullYear()} Projet PAV Pédagogiques • Métropole Européenne de Lille
+            © {new Date().getFullYear()} Projet Prévention Pédagogique • Métropole Européenne de Lille
           </p>
         </div>
       </div>

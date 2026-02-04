@@ -20,7 +20,7 @@ export default function Header() {
           <Link
             href="/"
             className="flex items-center gap-3 font-semibold text-lg text-gray-900 group"
-            aria-label="Accueil PAV Pédagogiques MEL"
+            aria-label="Accueil Prévention Pédagogique MEL"
           >
             {/* MEL Logo */}
             <img
@@ -31,8 +31,8 @@ export default function Header() {
             <div className="h-6 w-px bg-gray-300" />
             <div className="flex items-center gap-2">
               <span className="text-xl group-hover:scale-110 transition-transform" aria-hidden="true">♻️</span>
-              <span className="hidden sm:inline font-bold text-gray-800">PAV Pédagogiques</span>
-              <span className="sm:hidden font-bold">PAV</span>
+              <span className="hidden sm:inline font-bold text-gray-800">Prévention Pédagogique</span>
+              <span className="sm:hidden font-bold">PP</span>
             </div>
           </Link>
 
