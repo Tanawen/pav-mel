@@ -1,36 +1,110 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PAV Pédagogiques MEL
 
-## Getting Started
+Site de présentation de la solution "Points d'Apport Volontaire pédagogiques et intelligents" pour la Métropole Européenne de Lille (MEL).
 
-First, run the development server:
+## 🎯 Objectif
+
+Convaincre un jury (collectivité + école) en 3 minutes de navigation que notre solution peut simplifier le tri des déchets et améliorer l'espace public.
+
+## 🚀 Lancer le projet
+
+### Prérequis
+
+- Node.js 18+ installé
+- npm
+
+### Installation
 
 ```bash
+# Se placer dans le dossier du projet
+cd pav-mel
+
+# Installer les dépendances
+npm install
+
+# Lancer le serveur de développement
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Le site sera accessible sur **http://localhost:3000**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build de production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## 📁 Structure du projet
 
-To learn more about Next.js, take a look at the following resources:
+```
+pav-mel/
+├── src/
+│   ├── app/
+│   │   ├── page.tsx          # Page d'accueil
+│   │   ├── layout.tsx        # Layout global (Header + Footer)
+│   │   ├── globals.css       # Styles globaux
+│   │   ├── solution/         # Page Solution
+│   │   ├── demo/             # Page Démo Tri interactive
+│   │   ├── impact/           # Page Impact & KPI
+│   │   ├── deploiement/      # Page Plan de déploiement
+│   │   └── contact/          # Page Contact
+│   └── components/
+│       ├── Header.tsx        # Navigation
+│       └── Footer.tsx        # Pied de page
+├── public/                   # Assets statiques
+├── package.json
+└── README.md
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📄 Pages
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Route | Description |
+|-------|-------------|
+| `/` | Accueil avec hero, chiffres clés, problème et solution |
+| `/solution` | Détail des 4 piliers + parcours usager |
+| `/demo` | Mini-app interactive de tri (drag & drop) |
+| `/impact` | KPIs et graphiques de projection |
+| `/deploiement` | Plan en 3 phases + risques |
+| `/contact` | Formulaire de contact |
 
-## Deploy on Vercel
+## 🎮 Démo Tri
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+La page `/demo` propose une expérience interactive :
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **12 déchets** à trier par glisser-déposer
+- **4 poubelles** : Jaune (emballages), Vert (verre), Marron (biodéchets), Déchèterie
+- **Feedback immédiat** après chaque action (✅/❌ + explication)
+- **Mode "Quartier"** : simule des règles locales différentes pour montrer la confusion
+
+## 🛠️ Technologies
+
+- **Next.js 16** (App Router)
+- **TypeScript**
+- **Tailwind CSS**
+- **100% statique** (pas de backend)
+
+## ♿ Accessibilité
+
+- Navigation clavier complète
+- Attributs ARIA
+- Contrastes WCAG AA
+- Focus visible
+- Skip link
+
+## 📊 Performance
+
+Le site est optimisé pour un bon score Lighthouse :
+- Pas de librairies lourdes (charts en SVG pur)
+- Images en emoji (pas de fichiers à charger)
+- Composants simples et légers
+
+## 📝 Notes
+
+- **Prototype étudiant** — les données sont illustratives
+- Les coordonnées de contact sont fictives
+- Le formulaire simule un envoi (pas de backend)
+
+---
+
+Projet réalisé dans le cadre d'une présentation MEL.
