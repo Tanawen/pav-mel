@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description:
     "Points d'Apport Volontaire pédagogiques et intelligents pour la Métropole Européenne de Lille. Rendre le tri évident, réduire les erreurs, améliorer l'espace public.",
   keywords: ["tri", "déchets", "recyclage", "MEL", "Lille", "PAV", "pédagogique"],
-  authors: [{ name: "Projet PAV MEL" }],
+  authors: [{ name: "Projet Prévention Pédagogique MEL" }],
   openGraph: {
     title: "Prévention Pédagogique MEL",
     description: "Rendre le tri évident, réduire les erreurs, améliorer l'espace public.",
