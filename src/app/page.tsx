@@ -1,52 +1,4 @@
-'use client';
-
 import Link from "next/link";
-import { useEffect, useState, useRef } from "react";
-
-const stats = [
-  { value: 30, suffix: "%", label: "d'erreurs de tri en moyenne", icon: "❌", color: "text-red-500" },
-  { value: 25, suffix: "%", label: "des dépôts refusés en centre de tri", icon: "🚫", color: "text-orange-500" },
-  { value: 95, suffix: "", label: "communes concernées dans la MEL", icon: "🏘️", color: "text-blue-500" },
-];
-
-function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const [hasAnimated, setHasAnimated] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated) {
-          setHasAnimated(true);
-          let start = 0;
-          const duration = 1500;
-          const increment = value / (duration / 16);
-
-          const timer = setInterval(() => {
-            start += increment;
-            if (start >= value) {
-              setCount(value);
-              clearInterval(timer);
-            } else {
-              setCount(Math.floor(start));
-            }
-          }, 16);
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [value, hasAnimated]);
-
-  return (
-    <span ref={ref} className="tabular-nums">
-      {count}{suffix}
-    </span>
-  );
-}
 
 export default function Home() {
   return (
@@ -89,8 +41,7 @@ export default function Home() {
             </h1>
 
             <p className="animate-fade-in-up stagger-2 mt-8 text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
-              Des <strong>Points d&apos;Apport Volontaire pédagogiques et intelligents</strong>{" "}
-              pour transformer le tri sur le territoire de la Métropole Européenne de Lille.
+              Agissez concrètement pour mieux trier et réduire les déchets près de chez vous.
             </p>
 
             <div className="animate-fade-in-up stagger-3 mt-10 flex flex-col sm:flex-row gap-4 justify-center">
@@ -98,8 +49,8 @@ export default function Home() {
                 href="/swipe-jeux"
                 className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl transition-all shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 hover:scale-105"
               >
-                <span>Jouer aux mini-jeux</span>
-                <span className="ml-2 group-hover:translate-x-1 transition-transform">🎮</span>
+                <span>Commencer</span>
+                <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
               </Link>
               <Link
                 href="/solution"
@@ -118,24 +69,44 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats Section - Animated counters */}
-      <section className="py-16 bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className="text-center p-6 rounded-2xl bg-gray-50 card-hover"
-              >
-                <span className={`text-5xl block mb-4 ${stat.color}`} aria-hidden="true">
-                  {stat.icon}
-                </span>
-                <p className="text-4xl md:text-5xl font-bold text-gray-900">
-                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                </p>
-                <p className="mt-2 text-gray-600 font-medium">{stat.label}</p>
-              </div>
-            ))}
+      {/* Progression + Défi du jour */}
+      <section className="py-10 bg-white border-b">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          {/* Barre de progression fictive */}
+          <div className="bg-emerald-50 rounded-2xl p-5 mb-6 border border-emerald-100">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-sm font-semibold text-emerald-800">
+                <span aria-hidden="true">📈 </span>Votre progression aujourd&apos;hui
+              </span>
+              <span className="text-sm font-bold text-emerald-700">1 / 5 actions</span>
+            </div>
+            <div className="h-3 bg-emerald-200 rounded-full overflow-hidden">
+              <div className="h-full w-1/5 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full" />
+            </div>
+            <p className="text-xs text-emerald-600 mt-2">
+              Vous avez complété 1/5 actions aujourd&apos;hui
+            </p>
+          </div>
+
+          {/* Défi du jour */}
+          <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-6 border border-amber-200 flex flex-col sm:flex-row items-start sm:items-center gap-5">
+            <span className="text-4xl" aria-hidden="true">🏆</span>
+            <div className="flex-1">
+              <span className="inline-block text-xs font-bold uppercase tracking-wider text-amber-700 bg-amber-100 px-3 py-0.5 rounded-full mb-2">
+                Défi du jour
+              </span>
+              <h3 className="text-lg font-bold text-gray-900">Trie 5 déchets correctement</h3>
+              <p className="text-sm text-gray-600 mt-0.5">
+                Joue au jeu de tri et montre que tu connais les bonnes poubelles !
+              </p>
+            </div>
+            <Link
+              href="/demo"
+              className="inline-flex items-center px-5 py-2.5 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-xl transition-all hover:scale-105 whitespace-nowrap"
+            >
+              Relever le défi →
+            </Link>
           </div>
         </div>
       </section>
