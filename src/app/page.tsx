@@ -22,8 +22,8 @@ export default function Home() {
         <div className="relative container-mel">
           <div className="text-center max-w-4xl mx-auto">
             {/* Badge */}
-            <div className="animate-fade-in-up inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur rounded-md border border-[var(--gray-200)] shadow-sm mb-8">
-              <span className="text-sm font-medium text-[var(--mel-red)]">Prévention Pédagogique MEL • Innovation tri des déchets</span>
+            <div className="animate-fade-in-up inline-flex items-center gap-2 px-4 py-2 bg-[var(--mel-red)] text-white rounded-md shadow-sm mb-8">
+              <span className="text-sm font-medium">Prévention Pédagogique MEL • Innovation tri des déchets</span>
             </div>
 
             <h1 className="animate-fade-in-up stagger-1 text-3xl md:text-5xl lg:text-6xl font-bold text-[var(--gray-900)] leading-tight tracking-tight">
@@ -64,7 +64,7 @@ export default function Home() {
       <section className="py-8 bg-white border-b border-[var(--gray-200)]">
         <div className="container-mel max-w-3xl">
           {/* Barre de progression fictive */}
-          <div className="card-mel p-5 mb-5 bg-[var(--mel-red-light)] border-[var(--mel-red)]/20">
+          <div className="card-mel p-5 mb-5 bg-[var(--mel-red-light)] border-[var(--mel-red)]/30">
             <div className="flex items-center justify-between mb-2">
               <span className="text-sm font-semibold text-[var(--mel-red-dark)]">
                 <span aria-hidden="true">📈 </span>Votre progression aujourd&apos;hui
@@ -79,11 +79,11 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Défi du jour */}
-          <div className="card-mel p-6 bg-gradient-to-br from-amber-50 to-orange-50 border-amber-200 flex flex-col sm:flex-row items-start sm:items-center gap-5">
+          {/* Défi du jour - maintenant en rouge */}
+          <div className="card-mel p-6 bg-gradient-to-br from-[var(--mel-red-light)] to-pink-100 border-[var(--mel-red)]/30 flex flex-col sm:flex-row items-start sm:items-center gap-5">
             <span className="text-4xl" aria-hidden="true">🏆</span>
             <div className="flex-1">
-              <span className="inline-block text-xs font-bold uppercase tracking-wider text-amber-700 bg-amber-100 px-3 py-0.5 rounded-full mb-2">
+              <span className="inline-block text-xs font-bold uppercase tracking-wider text-white bg-[var(--mel-red)] px-3 py-0.5 rounded-full mb-2">
                 Défi du jour
               </span>
               <h3 className="text-lg font-bold text-[var(--gray-900)]">Trie 5 déchets correctement</h3>
@@ -93,7 +93,7 @@ export default function Home() {
             </div>
             <Link
               href="/demo"
-              className="btn btn-accent whitespace-nowrap"
+              className="btn btn-primary whitespace-nowrap"
             >
               Relever le défi
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -120,7 +120,7 @@ export default function Home() {
       <section className="py-16 bg-white" aria-labelledby="problem-heading">
         <div className="container-mel">
           <div className="text-center mb-12">
-            <span className="inline-block px-4 py-1 bg-red-100 text-red-700 rounded-full text-sm font-semibold mb-4">
+            <span className="inline-block px-4 py-1 bg-[var(--mel-red)] text-white rounded-full text-sm font-semibold mb-4">
               Le constat
             </span>
             <h2
@@ -155,7 +155,7 @@ export default function Home() {
             ].map((item, index) => (
               <article
                 key={index}
-                className="card-mel card-mel-interactive p-6"
+                className="card-mel card-mel-interactive p-6 border-t-4 border-t-[var(--mel-red)]"
               >
                 <span className="text-3xl block mb-4" aria-hidden="true">
                   {item.icon}
@@ -168,29 +168,27 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-[var(--gray-900)] text-white relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-1 bg-mel-gradient" />
-
+      {/* CTA Section - fond rouge */}
+      <section className="py-16 bg-mel-gradient text-white relative overflow-hidden">
         <div className="relative container-mel max-w-4xl text-center">
           <span className="text-5xl block mb-6">🎮</span>
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Prêt à apprendre le tri ?
           </h2>
-          <p className="text-lg text-[var(--gray-400)] mb-8">
+          <p className="text-lg text-white/80 mb-8">
             Testez nos mini-jeux éducatifs et devenez un pro du tri !
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/swipe-jeux"
-              className="btn bg-white text-[var(--gray-900)] hover:bg-[var(--gray-100)] text-base px-8 py-3"
+              className="btn bg-white text-[var(--mel-red)] hover:bg-white/90 text-base px-8 py-3 font-bold"
             >
               <span>Jouer maintenant</span>
               <span>🎮</span>
             </Link>
             <Link
               href="/solution"
-              className="btn border-2 border-white/30 text-white hover:border-white hover:bg-white/10 text-base px-8 py-3"
+              className="btn border-2 border-white text-white hover:bg-white/20 text-base px-8 py-3"
             >
               Notre approche
             </Link>
