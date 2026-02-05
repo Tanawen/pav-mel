@@ -23,7 +23,7 @@ export default function Home() {
           <div className="text-center max-w-4xl mx-auto">
             {/* Badge */}
             <div className="animate-fade-in-up inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur rounded-md border border-[var(--gray-200)] shadow-sm mb-8">
-              <span className="text-sm font-medium text-[var(--mel-blue)]">Prévention Pédagogique MEL • Innovation tri des déchets</span>
+              <span className="text-sm font-medium text-[var(--mel-red)]">Prévention Pédagogique MEL • Innovation tri des déchets</span>
             </div>
 
             <h1 className="animate-fade-in-up stagger-1 text-3xl md:text-5xl lg:text-6xl font-bold text-[var(--gray-900)] leading-tight tracking-tight">
@@ -32,7 +32,7 @@ export default function Home() {
               <br className="hidden md:block" />
               réduire les erreurs,
               <br className="hidden md:block" />
-              <span className="text-[var(--mel-blue)]">améliorer l&apos;espace public</span>
+              <span className="text-[var(--mel-red)]">améliorer l&apos;espace public</span>
             </h1>
 
             <p className="animate-fade-in-up stagger-2 mt-6 text-lg md:text-xl text-[var(--gray-600)] leading-relaxed max-w-2xl mx-auto">
@@ -64,17 +64,17 @@ export default function Home() {
       <section className="py-8 bg-white border-b border-[var(--gray-200)]">
         <div className="container-mel max-w-3xl">
           {/* Barre de progression fictive */}
-          <div className="card-mel p-5 mb-5 bg-[var(--mel-blue-light)] border-[var(--mel-blue)]/20">
+          <div className="card-mel p-5 mb-5 bg-[var(--mel-red-light)] border-[var(--mel-red)]/20">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-semibold text-[var(--mel-blue-dark)]">
+              <span className="text-sm font-semibold text-[var(--mel-red-dark)]">
                 <span aria-hidden="true">📈 </span>Votre progression aujourd&apos;hui
               </span>
-              <span className="text-sm font-bold text-[var(--mel-blue)]">1 / 5 actions</span>
+              <span className="text-sm font-bold text-[var(--mel-red)]">1 / 5 actions</span>
             </div>
             <div className="h-3 bg-white/60 rounded-full overflow-hidden">
               <div className="h-full w-1/5 progress-bar rounded-full" />
             </div>
-            <p className="text-xs text-[var(--mel-blue-dark)] mt-2">
+            <p className="text-xs text-[var(--mel-red-dark)] mt-2">
               Vous avez complété 1/5 actions aujourd&apos;hui
             </p>
           </div>

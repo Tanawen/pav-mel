@@ -5,18 +5,19 @@
    ===================================================== */
 
 :root {
-  /* ── Couleurs MEL ─────────────────────────────────── */
+  /* ── Couleurs MEL (Rouge/Pink comme couleur principale) ── */
+  --mel-red: #e4007c;
+  --mel-red-dark: #c4006a;
+  --mel-red-light: #fdf2f8;
   --mel-blue: #0066b3;
   --mel-blue-dark: #004d87;
   --mel-blue-light: #e6f2fa;
-  --mel-pink: #e4007c;
-  --mel-pink-dark: #c4006a;
 
   /* ── Couleurs institutionnelles ───────────────────── */
-  --color-primary: var(--mel-blue);
-  --color-primary-dark: var(--mel-blue-dark);
-  --color-primary-light: var(--mel-blue-light);
-  --color-accent: var(--mel-pink);
+  --color-primary: var(--mel-red);
+  --color-primary-dark: var(--mel-red-dark);
+  --color-primary-light: var(--mel-red-light);
+  --color-accent: var(--mel-blue);
 
   /* ── Gris institutionnels ─────────────────────────── */
   --gray-50: #f8fafc;
@@ -85,7 +86,7 @@
 
 /* Focus visible for accessibility */
 *:focus-visible {
-  outline: 2px solid var(--mel-blue);
+  outline: 2px solid var(--mel-red);
   outline-offset: 2px;
 }
 
@@ -94,7 +95,7 @@
   position: absolute;
   top: -40px;
   left: 0;
-  background: var(--mel-blue);
+  background: var(--mel-red);
   color: white;
   padding: 8px 16px;
   z-index: 100;
@@ -165,22 +166,22 @@ body {
 }
 
 .btn-primary {
-  background-color: var(--mel-blue);
+  background-color: var(--mel-red);
   color: white;
 }
 
 .btn-primary:hover:not(:disabled) {
-  background-color: var(--mel-blue-dark);
+  background-color: var(--mel-red-dark);
 }
 
 .btn-secondary {
   background-color: white;
-  color: var(--mel-blue);
-  border: 2px solid var(--mel-blue);
+  color: var(--mel-red);
+  border: 2px solid var(--mel-red);
 }
 
 .btn-secondary:hover:not(:disabled) {
-  background-color: var(--mel-blue-light);
+  background-color: var(--mel-red-light);
 }
 
 .btn-ghost {
@@ -193,12 +194,12 @@ body {
 }
 
 .btn-accent {
-  background-color: var(--mel-pink);
+  background-color: var(--mel-blue);
   color: white;
 }
 
 .btn-accent:hover:not(:disabled) {
-  background-color: var(--mel-pink-dark);
+  background-color: var(--mel-blue-dark);
 }
 
 /* ── Cards institutionnelles ────────────────────────── */
@@ -239,24 +240,24 @@ body {
 
 /* ── Section backgrounds ────────────────────────────── */
 .bg-mel-gradient {
-  background: linear-gradient(135deg, var(--mel-blue) 0%, var(--mel-blue-dark) 100%);
+  background: linear-gradient(135deg, var(--mel-red) 0%, var(--mel-red-dark) 100%);
 }
 
 .bg-mel-light {
-  background-color: var(--mel-blue-light);
+  background-color: var(--mel-red-light);
 }
 
 .bg-mel-accent {
-  background: linear-gradient(135deg, var(--mel-pink) 0%, var(--mel-pink-dark) 100%);
+  background: linear-gradient(135deg, var(--mel-blue) 0%, var(--mel-blue-dark) 100%);
 }
 
 /* ── Typographie MEL ────────────────────────────────── */
-.text-mel-blue {
-  color: var(--mel-blue);
+.text-mel-red {
+  color: var(--mel-red);
 }
 
-.text-mel-pink {
-  color: var(--mel-pink);
+.text-mel-blue {
+  color: var(--mel-blue);
 }
 
 /* =====================================================
@@ -368,7 +369,7 @@ body {
 
 /* ── Gradient text ──────────────────────────────────── */
 .gradient-text {
-  background: linear-gradient(135deg, var(--mel-blue) 0%, #0891b2 100%);
+  background: linear-gradient(135deg, var(--mel-red) 0%, #f472b6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -426,7 +427,7 @@ body {
 }
 
 .progress-bar {
-  background: linear-gradient(90deg, var(--mel-blue), #0891b2, var(--mel-blue));
+  background: linear-gradient(90deg, var(--mel-red), #f472b6, var(--mel-red));
   background-size: 200% 100%;
   animation: shimmer 2s infinite;
 }
@@ -434,36 +435,36 @@ body {
 /* ── Background patterns ────────────────────────────── */
 .bg-grid {
   background-image:
-    linear-gradient(to right, rgba(0, 102, 179, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 102, 179, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(228, 0, 124, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(228, 0, 124, 0.03) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
 .bg-dots {
-  background-image: radial-gradient(circle, rgba(0, 102, 179, 0.08) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(228, 0, 124, 0.08) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
 /* ── Hero backgrounds ───────────────────────────────── */
 .hero-mel {
-  background: linear-gradient(135deg, var(--mel-blue-light) 0%, #f0f9ff 50%, #ecfeff 100%);
+  background: linear-gradient(135deg, var(--mel-red-light) 0%, #fdf2f8 50%, #fce7f3 100%);
 }
 
 .hero-mesh {
-  background-color: var(--mel-blue-light);
+  background-color: var(--mel-red-light);
   background-image:
-    radial-gradient(at 40% 20%, rgba(0, 102, 179, 0.1) 0px, transparent 50%),
-    radial-gradient(at 80% 0%, rgba(0, 102, 179, 0.08) 0px, transparent 50%),
-    radial-gradient(at 0% 50%, rgba(0, 102, 179, 0.06) 0px, transparent 50%);
+    radial-gradient(at 40% 20%, rgba(228, 0, 124, 0.1) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(228, 0, 124, 0.08) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, rgba(228, 0, 124, 0.06) 0px, transparent 50%);
 }
 
 /* ── MEL Branding ───────────────────────────────────── */
-.mel-pink {
-  color: var(--mel-pink);
+.mel-red {
+  color: var(--mel-red);
 }
 
-.bg-mel-pink {
-  background-color: var(--mel-pink);
+.bg-mel-red {
+  background-color: var(--mel-red);
 }
 
 /* ── Wave divider ───────────────────────────────────── */
