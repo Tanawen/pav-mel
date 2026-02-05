@@ -3,15 +3,14 @@
 import { useState, useCallback, useMemo, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import dynamic from "next/dynamic";
-import pointsData from "@/data/points-mel.json";
 import {
   type PointMEL,
   type PointWithDistance,
   haversineDistance,
-  COMMUNES,
-  geocodeAddress,
   MEL_CENTER,
 } from "@/lib/geo";
+import { searchAddresses, type AddressSuggestion } from "@/lib/geocode";
+import { loadPoints } from "@/lib/opendata";
 import Filters, { type FilterType } from "./Filters";
 import NearbyList from "./NearbyList";
 import PlaceDrawer from "./PlaceDrawer";
@@ -20,10 +19,10 @@ import PlaceDrawer from "./PlaceDrawer";
 const MapView = dynamic(() => import("./MapView"), {
   ssr: false,
   loading: () => (
-    <div className="w-full h-full bg-gray-100 flex items-center justify-center">
+    <div className="w-full h-full bg-[var(--gray-100)] flex items-center justify-center">
       <div className="text-center">
         <div className="text-3xl mb-2 animate-pulse" aria-hidden="true">🗺️</div>
-        <p className="text-gray-500 text-sm">Chargement de la carte…</p>
+        <p className="text-[var(--gray-500)] text-sm">Chargement de la carte…</p>
       </div>
     </div>
   ),
@@ -32,9 +31,26 @@ const MapView = dynamic(() => import("./MapView"), {
 type GeoStatus = "idle" | "pending" | "denied" | "unavailable";
 
 export default function ProximiteClient() {
-  const places = pointsData as PointMEL[];
   const searchParams = useSearchParams();
 
+  /* ── Données open data (cache → API → mock) ────────────────────────── */
+  const [places, setPlaces] = useState<PointMEL[]>([]);
+  const [dataReady, setDataReady] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    loadPoints().then((data) => {
+      if (!cancelled) {
+        setPlaces(data);
+        setDataReady(true);
+      }
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  /* ── UI state ───────────────────────────────────────────────────────── */
   const [userPos, setUserPos] = useState<{ lat: number; lng: number } | null>(null);
   const [filter, setFilter] = useState<FilterType>(() => {
     const param = searchParams.get("filter");
@@ -43,26 +59,39 @@ export default function ProximiteClient() {
   });
   const [selectedPlace, setSelectedPlace] = useState<PointMEL | null>(null);
   const [geoStatus, setGeoStatus] = useState<GeoStatus>("idle");
-  const [search, setSearch] = useState("");
-  const [isSearching, setIsSearching] = useState(false);
-  const [showDropdown, setShowDropdown] = useState(false);
   const [mapCentre, setMapCentre] = useState<[number, number]>(MEL_CENTER);
-  const [geocodeWarning, setGeocodeWarning] = useState(false);
 
-  const searchContainerRef = useRef<HTMLDivElement>(null);
+  /* ── Autocomplete state ─────────────────────────────────────────────── */
+  const [addressInput, setAddressInput] = useState("");
+  const [suggestions, setSuggestions] = useState<AddressSuggestion[]>([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
+  const [searchError, setSearchError] = useState(false);
 
-  /* ── Click-outside closes commune dropdown ─────────────────────────── */
+  const abortRef = useRef<AbortController | null>(null);
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  /* ── Click-outside ferme le dropdown ────────────────────────────────── */
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       if (
-        searchContainerRef.current &&
-        !searchContainerRef.current.contains(e.target as Node)
+        containerRef.current &&
+        !containerRef.current.contains(e.target as Node)
       ) {
-        setShowDropdown(false);
+        setShowSuggestions(false);
       }
     };
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  /* ── Nettoyage des refs à l'unmount ─────────────────────────────────── */
+  useEffect(() => {
+    return () => {
+      if (debounceRef.current) clearTimeout(debounceRef.current);
+      if (abortRef.current) abortRef.current.abort();
+    };
   }, []);
 
   /* ── Derived state ──────────────────────────────────────────────────── */
@@ -79,15 +108,8 @@ export default function ProximiteClient() {
         distance: haversineDistance(userPos.lat, userPos.lng, p.lat, p.lng),
       }))
       .sort((a, b) => a.distance - b.distance)
-      .slice(0, 5);
+      .slice(0, 10);
   }, [filteredPlaces, userPos]);
-
-  const communeSuggestions = useMemo(() => {
-    if (!search.trim()) return COMMUNES.slice(0, 6);
-    return COMMUNES.filter((c) =>
-      c.name.toLowerCase().includes(search.toLowerCase())
-    );
-  }, [search]);
 
   /* ── Handlers ───────────────────────────────────────────────────────── */
   const applyPosition = useCallback((lat: number, lng: number) => {
@@ -111,137 +133,175 @@ export default function ProximiteClient() {
     );
   }, [applyPosition]);
 
-  const handleSearch = useCallback(async () => {
-    const q = search.trim();
-    if (!q) return;
+  /** Déclenché à chaque keystroke : debounce 300 ms + AbortController. */
+  const handleAddressInput = useCallback((value: string) => {
+    setAddressInput(value);
+    setSearchError(false);
 
-    // Exact commune match first
-    const commune = COMMUNES.find(
-      (c) => c.name.toLowerCase() === q.toLowerCase()
-    );
-    if (commune) {
-      applyPosition(commune.lat, commune.lng);
-      setSearch("");
-      setShowDropdown(false);
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    if (abortRef.current) abortRef.current.abort();
+
+    if (!value.trim()) {
+      setSuggestions([]);
+      setShowSuggestions(false);
       return;
     }
 
-    // Nominatim fallback
-    setIsSearching(true);
-    setGeocodeWarning(true);
-    const result = await geocodeAddress(q);
-    setIsSearching(false);
-    if (result) {
-      applyPosition(result.lat, result.lng);
-      setSearch("");
-      setShowDropdown(false);
+    setShowSuggestions(true);
+
+    debounceRef.current = setTimeout(async () => {
+      const controller = new AbortController();
+      abortRef.current = controller;
+      try {
+        const results = await searchAddresses(value, controller.signal);
+        if (!controller.signal.aborted) {
+          setSuggestions(results);
+        }
+      } catch (e) {
+        if (!(e instanceof Error && e.name === "AbortError")) {
+          setSuggestions([]);
+        }
+      }
+    }, 300);
+  }, []);
+
+  /** Sélection d'une suggestion → centre la carte sur cette adresse. */
+  const selectSuggestion = useCallback(
+    (s: AddressSuggestion) => {
+      applyPosition(s.lat, s.lng);
+      setAddressInput(s.label);
+      setSuggestions([]);
+      setShowSuggestions(false);
+    },
+    [applyPosition]
+  );
+
+  /** Bouton "Rechercher" : utilise la 1ère suggestion ou relance une recherche. */
+  const handleSearch = useCallback(async () => {
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    if (abortRef.current) abortRef.current.abort();
+
+    const q = addressInput.trim();
+    if (!q) return;
+
+    if (suggestions.length > 0) {
+      selectSuggestion(suggestions[0]);
+      return;
     }
-    // if null the input stays so the user can edit
-  }, [search, applyPosition]);
+
+    setIsSearching(true);
+    setSearchError(false);
+    try {
+      const results = await searchAddresses(q);
+      if (results.length > 0) {
+        selectSuggestion(results[0]);
+      } else {
+        setSearchError(true);
+      }
+    } catch {
+      setSearchError(true);
+    }
+    setIsSearching(false);
+  }, [addressInput, suggestions, selectSuggestion]);
 
   /* ── Render ─────────────────────────────────────────────────────────── */
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-[var(--gray-50)]">
       {/* ── Controls header ─────────────────────────────────────────── */}
-      <section className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-4">
-          {/* Title block */}
+      <section className="bg-white shadow-sm border-b border-[var(--gray-200)]">
+        <div className="container-mel py-6 space-y-4">
+          {/* Title + RGPD */}
           <div>
-            <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
+            <h1 className="text-xl md:text-2xl font-bold text-[var(--gray-900)]">
               Trouver un point de dépôt près de chez moi
             </h1>
-            <p className="text-sm text-gray-500 mt-1">
-              Autorisez la géolocalisation pour calculer la distance.{" "}
-              <span className="italic">
-                Votre position n&apos;est pas stockée.
-              </span>
+            <p className="text-xs text-[var(--gray-400)] mt-1 italic">
+              Adresse utilisée uniquement pour calculer la distance. Non stockée.
             </p>
           </div>
 
-          {/* Location row */}
-          <div className="flex flex-col sm:flex-row gap-3">
-            {/* Geolocation button */}
-            <button
-              type="button"
-              onClick={handleGeolocate}
-              disabled={geoStatus === "pending"}
-              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-xl hover:bg-emerald-700 disabled:opacity-60 transition-colors shrink-0"
-            >
-              <span aria-hidden="true">
-                {geoStatus === "pending" ? "⏳" : "📍"}
-              </span>
-              {geoStatus === "pending" ? "En cours…" : "Utiliser ma position"}
-            </button>
-
-            {/* Search input + commune autocomplete */}
-            <div className="relative flex-1" ref={searchContainerRef}>
-              <div className="flex gap-2">
+          {/* Address input + autocomplete + buttons */}
+          <div className="relative" ref={containerRef}>
+            <div className="flex flex-col sm:flex-row gap-3">
+              {/* Input + suggestions dropdown */}
+              <div className="relative flex-1">
                 <input
                   type="text"
-                  value={search}
-                  onChange={(e) => {
-                    setSearch(e.target.value);
-                    setShowDropdown(true);
-                  }}
-                  onFocus={() => setShowDropdown(true)}
+                  value={addressInput}
+                  onChange={(e) => handleAddressInput(e.target.value)}
+                  onFocus={() => setShowSuggestions(true)}
                   onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-                  placeholder="Commune ou adresse…"
-                  aria-label="Rechercher une commune ou adresse"
-                  className="flex-1 px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:border-transparent"
+                  placeholder="Adresse complète…"
+                  aria-label="Rechercher une adresse"
+                  aria-autocomplete="list"
+                  aria-expanded={showSuggestions && suggestions.length > 0}
+                  className="w-full px-4 py-2.5 border border-[var(--gray-200)] rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[var(--mel-blue)] focus:border-transparent"
                 />
+
+                {showSuggestions && suggestions.length > 0 && (
+                  <ul
+                    className="absolute top-full left-0 right-0 mt-1 bg-white border border-[var(--gray-200)] rounded-md shadow-lg z-dropdown max-h-52 overflow-y-auto"
+                    role="listbox"
+                    aria-label="Suggestions d'adresses"
+                  >
+                    {suggestions.map((s) => (
+                      <li
+                        key={s.id}
+                        role="option"
+                        aria-selected={false}
+                        className="px-4 py-2.5 text-sm text-[var(--gray-700)] hover:bg-[var(--mel-blue-light)] cursor-pointer transition-colors flex items-center gap-2"
+                        onMouseDown={(e) => {
+                          e.preventDefault();
+                          selectSuggestion(s);
+                        }}
+                      >
+                        <span aria-hidden="true">📍</span>
+                        {s.label}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+
+              {/* Rechercher + Ma position */}
+              <div className="flex gap-2 shrink-0">
                 <button
                   type="button"
                   onClick={handleSearch}
-                  disabled={isSearching || !search.trim()}
-                  className="px-4 py-2.5 bg-gray-100 text-gray-700 text-sm font-medium rounded-xl hover:bg-gray-200 disabled:opacity-50 transition-colors shrink-0"
+                  disabled={isSearching || !addressInput.trim()}
+                  className="btn btn-primary"
                 >
                   {isSearching ? "…" : "Rechercher"}
                 </button>
-              </div>
-
-              {/* Commune suggestions dropdown */}
-              {showDropdown && communeSuggestions.length > 0 && (
-                <ul
-                  className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-xl shadow-lg z-10 max-h-48 overflow-y-auto"
-                  role="listbox"
-                  aria-label="Communes suggérées"
+                <button
+                  type="button"
+                  onClick={handleGeolocate}
+                  disabled={geoStatus === "pending"}
+                  className="btn btn-ghost"
                 >
-                  {communeSuggestions.map((c) => (
-                    <li
-                      key={c.name}
-                      role="option"
-                      aria-selected={false}
-                      className="px-4 py-2.5 text-sm text-gray-700 hover:bg-emerald-50 cursor-pointer transition-colors flex items-center gap-2"
-                      onMouseDown={(e) => {
-                        e.preventDefault(); // prevent input blur before selection
-                        applyPosition(c.lat, c.lng);
-                        setSearch("");
-                        setShowDropdown(false);
-                      }}
-                    >
-                      <span aria-hidden="true">📍</span>
-                      {c.name}
-                    </li>
-                  ))}
-                </ul>
-              )}
+                  <span aria-hidden="true">
+                    {geoStatus === "pending" ? "⏳" : "📍"}
+                  </span>
+                  {geoStatus === "pending" ? "En cours…" : "Ma position"}
+                </button>
+              </div>
             </div>
           </div>
 
           {/* Status / warning banners */}
+          {searchError && (
+            <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-md px-4 py-2">
+              Aucune adresse trouvée. Vérifiez votre saisie ou utilisez « Ma position ».
+            </p>
+          )}
           {geoStatus === "denied" && (
-            <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-2">
-              La géolocalisation a été refusée. Utilisez la recherche par commune ci-dessus.
+            <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-md px-4 py-2">
+              La géolocalisation a été refusée. Utilisez la recherche par adresse ci-dessus.
             </p>
           )}
           {geoStatus === "unavailable" && (
-            <p className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg px-4 py-2">
+            <p className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-md px-4 py-2">
               La géolocalisation n&apos;est pas disponible sur votre navigateur.
-            </p>
-          )}
-          {geocodeWarning && (
-            <p className="text-xs text-gray-400 italic">
-              La recherche par adresse utilise le service externe Nominatim (OpenStreetMap) – données illustratives.
             </p>
           )}
 
@@ -251,32 +311,44 @@ export default function ProximiteClient() {
       </section>
 
       {/* ── Map + Nearby list ──────────────────────────────────────── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div className="container-mel py-6">
+        {!dataReady && (
+          <p className="text-sm text-[var(--gray-500)] flex items-center gap-2 mb-3">
+            <span className="animate-pulse">●</span>
+            Chargement des données…
+          </p>
+        )}
+
         <div className="flex flex-col lg:flex-row gap-6">
-          {/* Map panel */}
-          <div className="flex-1 h-64 sm:h-96 lg:h-[520px] rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
-            <MapView
-              points={filteredPlaces}
-              userPos={userPos}
-              centre={mapCentre}
-              onPlaceClick={setSelectedPlace}
-            />
+          {/* Map panel - bloc service style */}
+          <div className="flex-1 bloc-service">
+            <div className="h-64 sm:h-96 lg:h-[520px]">
+              <MapView
+                points={filteredPlaces}
+                userPos={userPos}
+                centre={mapCentre}
+                onPlaceClick={setSelectedPlace}
+              />
+            </div>
           </div>
 
-          {/* Nearby list panel */}
+          {/* Nearby list panel – top 10 */}
           <div className="w-full lg:w-80 lg:max-h-[520px] lg:overflow-y-auto">
-            {userPos ? (
+            {userPos && dataReady ? (
               <NearbyList
                 places={nearbyPlaces}
                 userPos={userPos}
                 onPlaceClick={setSelectedPlace}
               />
             ) : (
-              <div className="bg-white rounded-2xl border border-gray-200 p-6 text-center">
-                <span className="text-3xl block mb-3" aria-hidden="true">📍</span>
-                <p className="text-sm text-gray-500">
-                  Utilisez la géolocalisation ou recherchez une commune pour
-                  voir les points les plus proches.
+              <div className="card-mel p-6 text-center">
+                <span className="text-3xl block mb-3" aria-hidden="true">
+                  {dataReady ? "📍" : "⏳"}
+                </span>
+                <p className="text-sm text-[var(--gray-500)]">
+                  {dataReady
+                    ? "Utilisez la géolocalisation ou recherchez une adresse pour voir les points les plus proches."
+                    : "Chargement des données…"}
                 </p>
               </div>
             )}
@@ -285,8 +357,8 @@ export default function ProximiteClient() {
       </div>
 
       {/* ── Legend ──────────────────────────────────────────────────── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6">
-        <div className="flex gap-5 flex-wrap text-sm text-gray-500">
+      <div className="container-mel pb-6">
+        <div className="flex gap-5 flex-wrap text-sm text-[var(--gray-500)]">
           <span className="flex items-center gap-1.5">
             <span className="inline-block w-4 h-4 rounded-full bg-emerald-500" />
             PAV Verre
@@ -297,17 +369,21 @@ export default function ProximiteClient() {
           </span>
           {userPos && (
             <span className="flex items-center gap-1.5">
-              <span className="inline-block w-3 h-3 rounded-full bg-blue-500 ring-2 ring-blue-200" />
+              <span className="inline-block w-3 h-3 rounded-full bg-[var(--mel-blue)] ring-2 ring-[var(--mel-blue-light)]" />
               Votre position
             </span>
           )}
         </div>
-        <p className="text-xs text-gray-400 mt-3 italic">
-          Prototype – données illustratives uniquement. Les coordonnées sont approximatives.
-        </p>
+        {dataReady && (
+          <p className="text-xs text-[var(--gray-400)] mt-2">
+            {places.filter((p) => p.type === "verre").length} PAV verre ·{" "}
+            {places.filter((p) => p.type === "decheterie").length} déchèteries ·
+            données officielles MEL
+          </p>
+        )}
       </div>
 
-      {/* ── Place detail drawer ───────────────────────────────────── */}
+      {/* ── Place detail drawer (z-index modal) ──────────────────── */}
       {selectedPlace && (
         <PlaceDrawer
           place={selectedPlace}

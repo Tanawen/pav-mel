@@ -1,15 +1,91 @@
 @import "tailwindcss";
 
+/* =====================================================
+   DESIGN TOKENS - Style Institutionnel MEL
+   ===================================================== */
+
 :root {
+  /* ── Couleurs MEL ─────────────────────────────────── */
+  --mel-blue: #0066b3;
+  --mel-blue-dark: #004d87;
+  --mel-blue-light: #e6f2fa;
+  --mel-pink: #e4007c;
+  --mel-pink-dark: #c4006a;
+
+  /* ── Couleurs institutionnelles ───────────────────── */
+  --color-primary: var(--mel-blue);
+  --color-primary-dark: var(--mel-blue-dark);
+  --color-primary-light: var(--mel-blue-light);
+  --color-accent: var(--mel-pink);
+
+  /* ── Gris institutionnels ─────────────────────────── */
+  --gray-50: #f8fafc;
+  --gray-100: #f1f5f9;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e1;
+  --gray-400: #94a3b8;
+  --gray-500: #64748b;
+  --gray-600: #475569;
+  --gray-700: #334155;
+  --gray-800: #1e293b;
+  --gray-900: #0f172a;
+
+  /* ── Couleurs poubelles ───────────────────────────── */
   --color-yellow: #fbbf24;
   --color-green: #22c55e;
   --color-brown: #92400e;
   --color-gray: #6b7280;
+
+  /* ── Typographie ──────────────────────────────────── */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+
+  /* ── Espacements (rythme vertical 8px) ────────────── */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+
+  /* ── Rayons de bordure ────────────────────────────── */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+
+  /* ── Ombres institutionnelles ─────────────────────── */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  /* ── Z-index ──────────────────────────────────────── */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-modal-backdrop: 300;
+  --z-modal: 400;
+  --z-toast: 500;
 }
+
+/* =====================================================
+   BASE STYLES
+   ===================================================== */
 
 /* Focus visible for accessibility */
 *:focus-visible {
-  outline: 2px solid #059669;
+  outline: 2px solid var(--mel-blue);
   outline-offset: 2px;
 }
 
@@ -18,7 +94,7 @@
   position: absolute;
   top: -40px;
   left: 0;
-  background: #059669;
+  background: var(--mel-blue);
   color: white;
   padding: 8px 16px;
   z-index: 100;
@@ -40,13 +116,158 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ===== ANIMATIONS ===== */
+/* =====================================================
+   DESIGN SYSTEM - Composants Institutionnels
+   ===================================================== */
+
+/* ── Container institutionnel ───────────────────────── */
+.container-mel {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .container-mel {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-mel {
+    padding-left: var(--space-8);
+    padding-right: var(--space-8);
+  }
+}
+
+/* ── Boutons institutionnels ────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background-color: var(--mel-blue);
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--mel-blue-dark);
+}
+
+.btn-secondary {
+  background-color: white;
+  color: var(--mel-blue);
+  border: 2px solid var(--mel-blue);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--mel-blue-light);
+}
+
+.btn-ghost {
+  background-color: transparent;
+  color: var(--gray-700);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background-color: var(--gray-100);
+}
+
+.btn-accent {
+  background-color: var(--mel-pink);
+  color: white;
+}
+
+.btn-accent:hover:not(:disabled) {
+  background-color: var(--mel-pink-dark);
+}
+
+/* ── Cards institutionnelles ────────────────────────── */
+.card-mel {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card-mel:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.card-mel-interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ── Bloc service (pour carte, jeux, etc.) ──────────── */
+.bloc-service {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.bloc-service-header {
+  padding: var(--space-4) var(--space-6);
+  border-bottom: 1px solid var(--gray-100);
+  background: var(--gray-50);
+}
+
+.bloc-service-content {
+  padding: 0;
+}
+
+/* ── Section backgrounds ────────────────────────────── */
+.bg-mel-gradient {
+  background: linear-gradient(135deg, var(--mel-blue) 0%, var(--mel-blue-dark) 100%);
+}
+
+.bg-mel-light {
+  background-color: var(--mel-blue-light);
+}
+
+.bg-mel-accent {
+  background: linear-gradient(135deg, var(--mel-pink) 0%, var(--mel-pink-dark) 100%);
+}
+
+/* ── Typographie MEL ────────────────────────────────── */
+.text-mel-blue {
+  color: var(--mel-blue);
+}
+
+.text-mel-pink {
+  color: var(--mel-pink);
+}
+
+/* =====================================================
+   ANIMATIONS
+   ===================================================== */
 
 /* Fade in up animation */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -64,7 +285,7 @@ body {
 @keyframes scaleIn {
   from {
     opacity: 0;
-    transform: scale(0.9);
+    transform: scale(0.95);
   }
   to {
     opacity: 1;
@@ -72,69 +293,19 @@ body {
   }
 }
 
-/* Bounce animation */
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+/* Slide down (menu mobile) */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Pulse animation */
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
-
-/* Float animation */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-/* Shimmer animation */
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-/* Counter animation */
-@keyframes countUp {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Confetti burst */
-@keyframes confetti {
-  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-  100% { transform: translateY(-500px) rotate(720deg); opacity: 0; }
-}
-
-/* ===== ANIMATION CLASSES ===== */
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out forwards;
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.5s ease-out forwards;
-}
-
-.animate-scale-in {
-  animation: scaleIn 0.4s ease-out forwards;
-}
-
-.animate-bounce-slow {
-  animation: bounce 2s ease-in-out infinite;
-}
-
-.animate-pulse-slow {
-  animation: pulse 2s ease-in-out infinite;
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-/* Slide-up (drawer / bottom-sheet entrance) */
+/* Slide up (drawer) */
 @keyframes slideUp {
   from {
     opacity: 0;
@@ -146,6 +317,23 @@ body {
   }
 }
 
+/* Animation classes */
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s ease-out forwards;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.3s ease-out forwards;
+}
+
 .animate-slide-up {
   animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
@@ -155,73 +343,50 @@ body {
 .stagger-2 { animation-delay: 0.2s; }
 .stagger-3 { animation-delay: 0.3s; }
 .stagger-4 { animation-delay: 0.4s; }
-.stagger-5 { animation-delay: 0.5s; }
-.stagger-6 { animation-delay: 0.6s; }
 
 /* Initially hidden for animation */
 .animate-on-scroll {
   opacity: 0;
 }
 
-/* ===== ENHANCED HOVER EFFECTS ===== */
+/* =====================================================
+   HOVER EFFECTS
+   ===================================================== */
 
 .card-hover {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
-.btn-hover {
-  transition: all 0.2s ease;
-  position: relative;
-  overflow: hidden;
-}
+/* =====================================================
+   SPECIAL ELEMENTS
+   ===================================================== */
 
-.btn-hover::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  transform: translateX(-100%);
-  transition: transform 0.5s;
-}
-
-.btn-hover:hover::after {
-  transform: translateX(100%);
-}
-
-/* ===== GRADIENT TEXT ===== */
-
+/* ── Gradient text ──────────────────────────────────── */
 .gradient-text {
-  background: linear-gradient(135deg, #059669 0%, #0d9488 50%, #0891b2 100%);
+  background: linear-gradient(135deg, var(--mel-blue) 0%, #0891b2 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* ===== GLASS EFFECT ===== */
-
+/* ── Glass effect ───────────────────────────────────── */
 .glass {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
 
-/* ===== ENHANCED SHADOWS ===== */
-
+/* ── Shadows ────────────────────────────────────────── */
 .shadow-soft {
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-md);
 }
 
-.shadow-glow-emerald {
-  box-shadow: 0 0 30px -5px rgba(16, 185, 129, 0.3);
-}
-
-/* ===== BIN COLORS ===== */
-
+/* ── BIN COLORS ─────────────────────────────────────── */
 .bin-yellow {
   background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
 }
@@ -238,8 +403,7 @@ body {
   background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
 }
 
-/* ===== SUCCESS/ERROR STATES ===== */
-
+/* ── Success/Error states ───────────────────────────── */
 .success-glow {
   animation: pulse 0.5s ease-out;
   box-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
@@ -255,94 +419,54 @@ body {
   40%, 80% { transform: translateX(5px); }
 }
 
-/* ===== PROGRESS BAR ===== */
+/* ── Progress bar ───────────────────────────────────── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
 
 .progress-bar {
-  background: linear-gradient(90deg, #059669, #0d9488, #059669);
+  background: linear-gradient(90deg, var(--mel-blue), #0891b2, var(--mel-blue));
   background-size: 200% 100%;
   animation: shimmer 2s infinite;
 }
 
-/* ===== CONFETTI ===== */
-
-.confetti-piece {
-  position: fixed;
-  width: 10px;
-  height: 10px;
-  animation: confetti 3s ease-out forwards;
-  pointer-events: none;
-  z-index: 1000;
-}
-
-/* ===== BACKGROUND PATTERNS ===== */
-
-.bg-pattern {
-  background-image: url('/pattern.svg');
-  background-repeat: repeat;
-}
-
+/* ── Background patterns ────────────────────────────── */
 .bg-grid {
   background-image:
-    linear-gradient(to right, rgba(16, 185, 129, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(16, 185, 129, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(0, 102, 179, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 102, 179, 0.03) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
 .bg-dots {
-  background-image: radial-gradient(circle, rgba(16, 185, 129, 0.15) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(0, 102, 179, 0.08) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
-.bg-gradient-radial {
-  background: radial-gradient(ellipse at top, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
-              radial-gradient(ellipse at bottom right, rgba(20, 184, 166, 0.1) 0%, transparent 50%);
-}
-
-/* ===== HERO BACKGROUNDS ===== */
-
-.hero-bg {
-  background:
-    linear-gradient(135deg, rgba(236, 253, 245, 0.9) 0%, rgba(204, 251, 241, 0.9) 50%, rgba(207, 250, 254, 0.9) 100%),
-    url('/pattern.svg');
+/* ── Hero backgrounds ───────────────────────────────── */
+.hero-mel {
+  background: linear-gradient(135deg, var(--mel-blue-light) 0%, #f0f9ff 50%, #ecfeff 100%);
 }
 
 .hero-mesh {
-  background-color: #ecfdf5;
+  background-color: var(--mel-blue-light);
   background-image:
-    radial-gradient(at 40% 20%, rgba(16, 185, 129, 0.15) 0px, transparent 50%),
-    radial-gradient(at 80% 0%, rgba(20, 184, 166, 0.15) 0px, transparent 50%),
-    radial-gradient(at 0% 50%, rgba(52, 211, 153, 0.1) 0px, transparent 50%),
-    radial-gradient(at 80% 50%, rgba(45, 212, 191, 0.1) 0px, transparent 50%),
-    radial-gradient(at 0% 100%, rgba(16, 185, 129, 0.1) 0px, transparent 50%),
-    radial-gradient(at 80% 100%, rgba(6, 182, 212, 0.1) 0px, transparent 50%);
+    radial-gradient(at 40% 20%, rgba(0, 102, 179, 0.1) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(0, 102, 179, 0.08) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, rgba(0, 102, 179, 0.06) 0px, transparent 50%);
 }
 
-/* ===== MEL BRANDING ===== */
-
+/* ── MEL Branding ───────────────────────────────────── */
 .mel-pink {
-  color: #e4007c;
+  color: var(--mel-pink);
 }
 
 .bg-mel-pink {
-  background-color: #e4007c;
+  background-color: var(--mel-pink);
 }
 
-.bg-mel-gradient {
-  background: linear-gradient(135deg, #e4007c 0%, #c4006a 100%);
-}
-
-/* ===== DECORATIVE SHAPES ===== */
-
-.shape-blob {
-  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-}
-
-.shape-blob-2 {
-  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-}
-
-/* ===== WAVE DIVIDER ===== */
-
+/* ── Wave divider ───────────────────────────────────── */
 .wave-divider {
   position: absolute;
   bottom: 0;
@@ -357,4 +481,32 @@ body {
   display: block;
   width: calc(100% + 1.3px);
   height: 60px;
+}
+
+/* =====================================================
+   Z-INDEX LAYERING
+   ===================================================== */
+
+/* Ensure proper stacking */
+.z-dropdown { z-index: var(--z-dropdown); }
+.z-sticky { z-index: var(--z-sticky); }
+.z-modal-backdrop { z-index: var(--z-modal-backdrop); }
+.z-modal { z-index: var(--z-modal); }
+.z-toast { z-index: var(--z-toast); }
+
+/* =====================================================
+   LEAFLET MAP OVERRIDES
+   ===================================================== */
+
+.leaflet-container {
+  font-family: var(--font-sans);
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.leaflet-popup-content {
+  margin: var(--space-3);
 }

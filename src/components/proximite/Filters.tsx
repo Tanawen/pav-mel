@@ -18,8 +18,8 @@ const OPTIONS: {
     value: "all",
     label: "Tous",
     icon: "📍",
-    active: "bg-gray-800 text-white",
-    idle: "bg-gray-100 text-gray-700 hover:bg-gray-200",
+    active: "bg-[var(--gray-800)] text-white",
+    idle: "bg-[var(--gray-100)] text-[var(--gray-700)] hover:bg-[var(--gray-200)]",
   },
   {
     value: "verre",
@@ -46,7 +46,7 @@ export default function Filters({ filter, onChange }: FiltersProps) {
           type="button"
           onClick={() => onChange(opt.value)}
           aria-pressed={filter === opt.value}
-          className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+          className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-md text-sm font-medium transition-all ${
             filter === opt.value ? opt.active : opt.idle
           }`}
         >
