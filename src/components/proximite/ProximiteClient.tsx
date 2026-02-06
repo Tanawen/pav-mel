@@ -235,7 +235,7 @@ export default function ProximiteClient() {
                   aria-label="Rechercher une adresse"
                   aria-autocomplete="list"
                   aria-expanded={showSuggestions && suggestions.length > 0}
-                  className="w-full px-4 py-2.5 border border-[var(--gray-200)] rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[var(--mel-blue)] focus:border-transparent"
+                  className="w-full px-4 py-2.5 border border-[var(--gray-200)] rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[var(--mel-red)] focus:border-transparent"
                 />
 
                 {showSuggestions && suggestions.length > 0 && (
@@ -249,7 +249,7 @@ export default function ProximiteClient() {
                         key={s.id}
                         role="option"
                         aria-selected={false}
-                        className="px-4 py-2.5 text-sm text-[var(--gray-700)] hover:bg-[var(--mel-blue-light)] cursor-pointer transition-colors flex items-center gap-2"
+                        className="px-4 py-2.5 text-sm text-[var(--gray-700)] hover:bg-[var(--mel-red-light)] cursor-pointer transition-colors flex items-center gap-2"
                         onMouseDown={(e) => {
                           e.preventDefault();
                           selectSuggestion(s);
@@ -360,16 +360,16 @@ export default function ProximiteClient() {
       <div className="container-mel pb-6">
         <div className="flex gap-5 flex-wrap text-sm text-[var(--gray-500)]">
           <span className="flex items-center gap-1.5">
-            <span className="inline-block w-4 h-4 rounded-full bg-emerald-500" />
+            <span className="inline-block w-4 h-4 rounded-full bg-red-500" />
             PAV Verre
           </span>
           <span className="flex items-center gap-1.5">
-            <span className="inline-block w-4 h-4 rounded-full bg-amber-500" />
+            <span className="inline-block w-4 h-4 rounded-full bg-red-400" />
             Déchèterie
           </span>
           {userPos && (
             <span className="flex items-center gap-1.5">
-              <span className="inline-block w-3 h-3 rounded-full bg-[var(--mel-blue)] ring-2 ring-[var(--mel-blue-light)]" />
+              <span className="inline-block w-3 h-3 rounded-full bg-[var(--mel-red)] ring-2 ring-[var(--mel-red-light)]" />
               Votre position
             </span>
           )}

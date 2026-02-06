@@ -63,7 +63,7 @@ const games = [
     title: "Je produis ou j'évite ?",
     subtitle: "Prévention des déchets",
     icon: "🌿",
-    color: "from-emerald-500 to-teal-600",
+    color: "from-red-500 to-red-600",
     leftLabel: "Je produis",
     rightLabel: "J'évite",
     leftIcon: "👎",
@@ -87,7 +87,7 @@ const games = [
     title: "Réparer, donner ou jeter ?",
     subtitle: "Économie circulaire",
     icon: "🔧",
-    color: "from-blue-500 to-indigo-600",
+    color: "from-red-500 to-red-600",
     leftLabel: "Jeter",
     rightLabel: "Sauver",
     leftIcon: "🗑️",
@@ -99,7 +99,7 @@ const games = [
     title: "Ce geste aide la collectivité ?",
     subtitle: "Vivre ensemble",
     icon: "🏘️",
-    color: "from-purple-500 to-pink-600",
+    color: "from-red-500 to-red-600",
     leftLabel: "Problème",
     rightLabel: "Utile",
     leftIcon: "😟",
@@ -482,7 +482,7 @@ function Game({ game, onBack }: GameProps) {
             <h2 className="text-2xl font-bold text-gray-900 mb-2">
               {score >= cards.length * 0.8 ? 'Excellent !' : score >= cards.length * 0.5 ? 'Bien joué !' : 'Continuez !'}
             </h2>
-            <p className="text-4xl font-bold text-emerald-600 mb-2">
+            <p className="text-4xl font-bold text-red-600 mb-2">
               {score}/{cards.length}
             </p>
             <p className="text-gray-600 mb-6">
@@ -525,7 +525,7 @@ export default function SwipeJeuxPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 text-white py-12 md:py-16 relative overflow-hidden">
+      <section className="bg-gradient-to-br from-red-600 via-red-600 to-red-700 text-white py-12 md:py-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-10" />
         <div className="absolute top-10 right-10 text-8xl opacity-20 animate-float">👆</div>
         <div className="absolute bottom-10 left-10 text-6xl opacity-20 animate-float" style={{ animationDelay: '1s' }}>👇</div>
@@ -552,15 +552,15 @@ export default function SwipeJeuxPage() {
           {/* Démo Tri - Featured Game */}
           <Link
             href="/demo"
-            className="group block bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:scale-[1.02] border-2 border-emerald-200 overflow-hidden relative mb-6"
+            className="group block bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:scale-[1.02] border-2 border-red-200 overflow-hidden relative mb-6"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 to-teal-600 opacity-0 group-hover:opacity-5 transition-opacity" />
-            <div className="absolute top-3 right-3 px-2 py-1 bg-emerald-100 text-emerald-700 rounded-full text-xs font-semibold">
+            <div className="absolute inset-0 bg-gradient-to-br from-red-500 to-red-600 opacity-0 group-hover:opacity-5 transition-opacity" />
+            <div className="absolute top-3 right-3 px-2 py-1 bg-red-100 text-red-700 rounded-full text-xs font-semibold">
               Jeu principal
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-lg">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center shadow-lg">
                 <span className="text-3xl">🎮</span>
               </div>
               <div className="flex-1">
@@ -586,7 +586,7 @@ export default function SwipeJeuxPage() {
 
             <div className="mt-4 flex items-center justify-between text-sm">
               <span className="text-gray-400">24 déchets à trier</span>
-              <span className="text-emerald-600 font-medium group-hover:translate-x-1 transition-transform">
+              <span className="text-red-600 font-medium group-hover:translate-x-1 transition-transform">
                 Jouer →
               </span>
             </div>
@@ -625,7 +625,7 @@ export default function SwipeJeuxPage() {
 
                 <div className="mt-4 flex items-center justify-between text-sm">
                   <span className="text-gray-400">{game.data.length} cartes</span>
-                  <span className="text-emerald-600 font-medium group-hover:translate-x-1 transition-transform">
+                  <span className="text-red-600 font-medium group-hover:translate-x-1 transition-transform">
                     Jouer →
                   </span>
                 </div>
@@ -645,7 +645,7 @@ export default function SwipeJeuxPage() {
           <div className="mt-8 text-center">
             <Link
               href="/"
-              className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium"
+              className="inline-flex items-center text-red-600 hover:text-red-700 font-medium"
             >
               <span className="mr-2">←</span>
               Retour à l&apos;accueil

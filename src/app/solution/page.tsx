@@ -11,11 +11,11 @@ export default function SolutionPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-emerald-50 to-teal-50 py-16 relative overflow-hidden">
+      <section className="bg-gradient-to-br from-red-50 to-red-100 py-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-10" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <span className="inline-block px-4 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-semibold mb-4">
+            <span className="inline-block px-4 py-1 bg-red-600 text-white rounded-full text-sm font-semibold mb-4">
               Notre approche
             </span>
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
@@ -58,13 +58,13 @@ export default function SolutionPage() {
                   { stat: "95", label: "communes concernées" },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
-                    <span className="text-2xl font-bold text-emerald-600">{item.stat}</span>
+                    <span className="text-2xl font-bold text-red-600">{item.stat}</span>
                     <span className="text-gray-600">{item.label}</span>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-6 border border-emerald-100">
+            <div className="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-6 border border-red-200">
               <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
                 <span>🎯</span> Objectifs du PLPDMA
               </h3>
@@ -77,7 +77,7 @@ export default function SolutionPage() {
                   "Réduire les dépôts sauvages",
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
-                    <span className="text-emerald-600 mt-0.5">✓</span>
+                    <span className="text-red-600 mt-0.5">✓</span>
                     {item}
                   </li>
                 ))}
@@ -91,7 +91,7 @@ export default function SolutionPage() {
       <section className="py-16 bg-white" aria-labelledby="pillars-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium mb-4">
+            <span className="inline-flex items-center gap-2 px-3 py-1 bg-red-600 text-white rounded-full text-sm font-medium mb-4">
               <span>🏗️</span> Les 4 piliers
             </span>
             <h2 id="pillars-heading" className="text-2xl md:text-3xl font-bold text-gray-900">
@@ -108,9 +108,9 @@ export default function SolutionPage() {
                 number: "01",
                 icon: "🏷️",
                 title: "Signalétique universelle",
-                color: "from-emerald-500 to-teal-600",
-                bgLight: "bg-emerald-50",
-                borderLight: "border-emerald-200",
+                color: "from-red-500 to-red-600",
+                bgLight: "bg-red-50",
+                borderLight: "border-red-200",
                 points: [
                   "Pictogrammes clairs et internationaux sur chaque PAV",
                   "Couleurs standardisées (jaune, vert, marron, gris)",
@@ -122,9 +122,9 @@ export default function SolutionPage() {
                 number: "02",
                 icon: "📱",
                 title: "QR codes & contenus micro",
-                color: "from-blue-500 to-indigo-600",
-                bgLight: "bg-blue-50",
-                borderLight: "border-blue-200",
+                color: "from-red-500 to-red-600",
+                bgLight: "bg-red-50",
+                borderLight: "border-red-200",
                 points: [
                   "Un QR code sur chaque PAV vers une page dédiée",
                   "Vidéos courtes (< 30s) par type de déchet",
@@ -136,9 +136,9 @@ export default function SolutionPage() {
                 number: "03",
                 icon: "🎮",
                 title: "Gamification & apprentissage",
-                color: "from-purple-500 to-pink-600",
-                bgLight: "bg-purple-50",
-                borderLight: "border-purple-200",
+                color: "from-red-500 to-red-600",
+                bgLight: "bg-red-50",
+                borderLight: "border-red-200",
                 points: [
                   "Mini-jeux swipe pour ancrer les réflexes de tri",
                   "Démo interactive drag-and-drop avec 24 déchets",
@@ -150,9 +150,9 @@ export default function SolutionPage() {
                 number: "04",
                 icon: "🤝",
                 title: "Médiation terrain",
-                color: "from-amber-500 to-orange-600",
-                bgLight: "bg-amber-50",
-                borderLight: "border-amber-200",
+                color: "from-red-500 to-red-600",
+                bgLight: "bg-red-50",
+                borderLight: "border-red-200",
                 points: [
                   "Présence humaine aux moments clés (installation, events)",
                   "Ton non culpabilisant, bénéfices mis en avant",
@@ -184,7 +184,7 @@ export default function SolutionPage() {
                   <ul className="space-y-2">
                     {pillar.points.map((point, idx) => (
                       <li key={idx} className="flex items-start gap-2 text-sm text-gray-600">
-                        <span className="text-emerald-500 mt-0.5 shrink-0">✓</span>
+                        <span className="text-red-500 mt-0.5 shrink-0">✓</span>
                         {point}
                       </li>
                     ))}
@@ -200,7 +200,7 @@ export default function SolutionPage() {
       <section className="py-16 bg-gray-50" aria-labelledby="journey-heading">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="inline-flex items-center gap-2 px-3 py-1 bg-teal-100 text-teal-700 rounded-full text-sm font-medium mb-4">
+            <span className="inline-flex items-center gap-2 px-3 py-1 bg-red-600 text-white rounded-full text-sm font-medium mb-4">
               <span>🗺️</span> Parcours usager
             </span>
             <h2 id="journey-heading" className="text-2xl md:text-3xl font-bold text-gray-900">
@@ -211,10 +211,10 @@ export default function SolutionPage() {
           {/* Timeline steps */}
           <div className="relative">
             {/* Vertical line (mobile) */}
-            <div className="md:hidden absolute left-6 top-0 bottom-0 w-0.5 bg-emerald-200" />
+            <div className="md:hidden absolute left-6 top-0 bottom-0 w-0.5 bg-red-200" />
 
             {/* Horizontal line (desktop) */}
-            <div className="hidden md:block absolute top-10 left-0 right-0 h-0.5 bg-emerald-200" style={{ marginLeft: '10%', marginRight: '10%' }} />
+            <div className="hidden md:block absolute top-10 left-0 right-0 h-0.5 bg-red-200" style={{ marginLeft: '10%', marginRight: '10%' }} />
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               {[
@@ -246,7 +246,7 @@ export default function SolutionPage() {
                 <div key={item.step} className="relative flex md:flex-col items-start md:items-center gap-4 md:gap-0">
                   {/* Circle (mobile: left side, desktop: top center) */}
                   <div className="shrink-0 relative z-10 md:mb-6">
-                    <div className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xl font-bold shadow-md">
+                    <div className="w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center text-xl font-bold shadow-md">
                       {item.step}
                     </div>
                   </div>
@@ -265,10 +265,10 @@ export default function SolutionPage() {
       </section>
 
       {/* Our Gamified Approach */}
-      <section className="py-12 bg-gradient-to-br from-indigo-50 to-purple-50">
+      <section className="py-12 bg-gradient-to-br from-red-50 to-red-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <span className="inline-flex items-center gap-2 px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium mb-4">
+            <span className="inline-flex items-center gap-2 px-3 py-1 bg-red-600 text-white rounded-full text-sm font-medium mb-4">
               <span>🎮</span> Notre innovation
             </span>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
@@ -299,7 +299,7 @@ export default function SolutionPage() {
                 desc: "Des sessions courtes et régulières ancrent durablement les connaissances dans la mémoire.",
               },
             ].map((item, idx) => (
-              <div key={idx} className="bg-white rounded-2xl p-6 shadow-sm border border-indigo-100">
+              <div key={idx} className="bg-white rounded-2xl p-6 shadow-sm border border-red-200">
                 <span className="text-4xl block mb-4">{item.icon}</span>
                 <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
                 <p className="text-gray-600 text-sm">{item.desc}</p>
@@ -310,7 +310,7 @@ export default function SolutionPage() {
           <div className="mt-10 text-center">
             <Link
               href="/swipe-jeux"
-              className="inline-flex items-center justify-center px-6 py-3 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-700 transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 bg-red-600 text-white font-semibold rounded-xl hover:bg-red-700 transition-colors"
             >
               <span>Essayer les mini-jeux</span>
               <span className="ml-2">🎮</span>
@@ -323,7 +323,7 @@ export default function SolutionPage() {
       <section className="py-16 bg-white" aria-labelledby="dashboard-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium mb-4">
+            <span className="inline-flex items-center gap-2 px-3 py-1 bg-red-600 text-white rounded-full text-sm font-medium mb-4">
               <span>🏘️</span> Émulation collective
             </span>
             <h2 id="dashboard-heading" className="text-2xl md:text-3xl font-bold text-gray-900">
@@ -358,7 +358,7 @@ export default function SolutionPage() {
                 desc: "La réduction des OMR est suivie en temps réel. L'usager voit concrètement comment son quartier évolue mois après mois.",
               },
             ].map((item, idx) => (
-              <div key={idx} className="bg-emerald-50 rounded-2xl p-6 border border-emerald-100">
+              <div key={idx} className="bg-red-50 rounded-2xl p-6 border border-red-200">
                 <span className="text-3xl block mb-4">{item.icon}</span>
                 <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
@@ -372,7 +372,7 @@ export default function SolutionPage() {
       <section className="py-16 bg-gray-50" aria-labelledby="calculator-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="inline-flex items-center gap-2 px-3 py-1 bg-teal-100 text-teal-700 rounded-full text-sm font-medium mb-4">
+            <span className="inline-flex items-center gap-2 px-3 py-1 bg-red-600 text-white rounded-full text-sm font-medium mb-4">
               <span>✨</span> Gratification
             </span>
             <h2 id="calculator-heading" className="text-2xl md:text-3xl font-bold text-gray-900">
@@ -397,9 +397,9 @@ export default function SolutionPage() {
                 landmark: "Grand'Place de Lille",
                 equivalence: "5 jours d'éclairage",
                 detail: "Le verre trié permet de régénérer de l'énergie qui alimente l'éclairage emblématique de la Grand'Place — un symbole de Lille que chacun connaît.",
-                color: "from-amber-400 to-orange-500",
-                bg: "bg-amber-50",
-                border: "border-amber-200",
+                color: "from-red-400 to-red-500",
+                bg: "bg-red-50",
+                border: "border-red-200",
               },
               {
                 icon: "🌱",
@@ -407,7 +407,7 @@ export default function SolutionPage() {
                 landmark: "Bus V'Lille / Métro",
                 equivalence: "150 m³ de biogaz",
                 detail: "Les biodéchets collectés génèrent du biogaz utilisable pour alimenter les transports en commun V'Lille et le réseau métro de la métropole.",
-                color: "from-green-400 to-emerald-500",
+                color: "from-red-400 to-red-500",
                 bg: "bg-green-50",
                 border: "border-green-200",
               },
@@ -417,9 +417,9 @@ export default function SolutionPage() {
                 landmark: "Parc de la Citadelle",
                 equivalence: "25 bancs publics",
                 detail: "Le plastique recyclé est transformé en mobilier urbain — comme les bancs du Parc de la Citadelle, un espace vert emblématique de Lille.",
-                color: "from-blue-400 to-cyan-500",
-                bg: "bg-blue-50",
-                border: "border-blue-200",
+                color: "from-red-400 to-red-500",
+                bg: "bg-red-50",
+                border: "border-red-200",
               },
             ].map((item, idx) => (
               <div key={idx} className={`bg-white rounded-2xl border ${item.border} shadow-sm overflow-hidden`}>
@@ -439,7 +439,7 @@ export default function SolutionPage() {
             ))}
           </div>
 
-          <div className="max-w-3xl mx-auto bg-teal-50 rounded-2xl p-8 border border-teal-100 text-center">
+          <div className="max-w-3xl mx-auto bg-red-50 rounded-2xl p-8 border border-red-200 text-center">
             <span className="text-3xl block mb-3">✨</span>
             <h3 className="font-bold text-gray-900 mb-3">L&apos;usager voit, l&apos;usager agit</h3>
             <p className="text-gray-700 leading-relaxed">
@@ -450,7 +450,7 @@ export default function SolutionPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-12 bg-gray-900 text-white">
+      <section className="py-12 bg-gradient-to-r from-red-600 to-red-700 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-xl md:text-2xl font-bold">
             Envie de tester par vous-même ?

@@ -80,7 +80,7 @@ export default function Home() {
           </div>
 
           {/* Défi du jour - maintenant en rouge */}
-          <div className="card-mel p-6 bg-gradient-to-br from-[var(--mel-red-light)] to-pink-100 border-[var(--mel-red)]/30 flex flex-col sm:flex-row items-start sm:items-center gap-5">
+          <div className="card-mel p-6 bg-gradient-to-br from-[var(--mel-red-light)] to-red-100 border-[var(--mel-red)]/30 flex flex-col sm:flex-row items-start sm:items-center gap-5">
             <span className="text-4xl" aria-hidden="true">🏆</span>
             <div className="flex-1">
               <span className="inline-block text-xs font-bold uppercase tracking-wider text-white bg-[var(--mel-red)] px-3 py-0.5 rounded-full mb-2">
