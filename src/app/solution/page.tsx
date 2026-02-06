@@ -65,8 +65,8 @@ export default function SolutionPage() {
               </div>
             </div>
             <div className="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-6 border border-red-200">
-              <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-                <span>🎯</span> Objectifs du PLPDMA
+              <h3 className="font-bold text-gray-900 mb-4">
+                Objectifs du PLPDMA
               </h3>
               <ul className="space-y-3">
                 {[
@@ -91,8 +91,8 @@ export default function SolutionPage() {
       <section className="py-16 bg-white" aria-labelledby="pillars-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="inline-flex items-center gap-2 px-3 py-1 bg-red-600 text-white rounded-full text-sm font-medium mb-4">
-              <span>🏗️</span> Les 4 piliers
+            <span className="inline-flex items-center px-3 py-1 bg-red-600 text-white rounded-full text-sm font-medium mb-4">
+              Les 4 piliers
             </span>
             <h2 id="pillars-heading" className="text-2xl md:text-3xl font-bold text-gray-900">
               Notre solution en détail
@@ -106,11 +106,7 @@ export default function SolutionPage() {
             {[
               {
                 number: "01",
-                icon: "🏷️",
                 title: "Signalétique universelle",
-                color: "from-red-500 to-red-600",
-                bgLight: "bg-red-50",
-                borderLight: "border-red-200",
                 points: [
                   "Pictogrammes clairs et internationaux sur chaque PAV",
                   "Couleurs standardisées (jaune, vert, marron, gris)",
@@ -120,11 +116,7 @@ export default function SolutionPage() {
               },
               {
                 number: "02",
-                icon: "📱",
                 title: "QR codes & contenus micro",
-                color: "from-red-500 to-red-600",
-                bgLight: "bg-red-50",
-                borderLight: "border-red-200",
                 points: [
                   "Un QR code sur chaque PAV vers une page dédiée",
                   "Vidéos courtes (< 30s) par type de déchet",
@@ -134,11 +126,7 @@ export default function SolutionPage() {
               },
               {
                 number: "03",
-                icon: "🎮",
                 title: "Gamification & apprentissage",
-                color: "from-red-500 to-red-600",
-                bgLight: "bg-red-50",
-                borderLight: "border-red-200",
                 points: [
                   "Mini-jeux swipe pour ancrer les réflexes de tri",
                   "Démo interactive drag-and-drop avec 24 déchets",
@@ -148,11 +136,7 @@ export default function SolutionPage() {
               },
               {
                 number: "04",
-                icon: "🤝",
                 title: "Médiation terrain",
-                color: "from-red-500 to-red-600",
-                bgLight: "bg-red-50",
-                borderLight: "border-red-200",
                 points: [
                   "Présence humaine aux moments clés (installation, events)",
                   "Ton non culpabilisant, bénéfices mis en avant",
@@ -163,18 +147,18 @@ export default function SolutionPage() {
             ].map((pillar) => (
               <article
                 key={pillar.number}
-                className={`relative bg-white rounded-2xl border ${pillar.borderLight} shadow-sm overflow-hidden`}
+                className="relative bg-white rounded-2xl border border-red-200 shadow-sm overflow-hidden"
               >
                 {/* Colored top bar */}
-                <div className={`h-1.5 bg-gradient-to-r ${pillar.color}`} />
+                <div className="h-1.5 bg-gradient-to-r from-red-500 to-red-600" />
 
                 <div className="p-6">
                   <div className="flex items-start gap-4 mb-4">
-                    <div className={`w-12 h-12 rounded-xl ${pillar.bgLight} flex items-center justify-center text-2xl shrink-0`}>
-                      {pillar.icon}
+                    <div className="w-12 h-12 rounded-xl bg-red-600 text-white flex items-center justify-center text-xl font-bold shrink-0">
+                      {pillar.number}
                     </div>
                     <div>
-                      <span className={`text-xs font-bold tracking-widest uppercase bg-gradient-to-r ${pillar.color} bg-clip-text text-transparent`}>
+                      <span className="text-xs font-bold tracking-widest uppercase text-red-600">
                         Pilier {pillar.number}
                       </span>
                       <h3 className="text-lg font-bold text-gray-900">{pillar.title}</h3>
@@ -184,7 +168,7 @@ export default function SolutionPage() {
                   <ul className="space-y-2">
                     {pillar.points.map((point, idx) => (
                       <li key={idx} className="flex items-start gap-2 text-sm text-gray-600">
-                        <span className="text-red-500 mt-0.5 shrink-0">✓</span>
+                        <span className="text-red-500 mt-0.5 shrink-0">•</span>
                         {point}
                       </li>
                     ))}
@@ -200,8 +184,8 @@ export default function SolutionPage() {
       <section className="py-16 bg-gray-50" aria-labelledby="journey-heading">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="inline-flex items-center gap-2 px-3 py-1 bg-red-600 text-white rounded-full text-sm font-medium mb-4">
-              <span>🗺️</span> Parcours usager
+            <span className="inline-flex items-center px-3 py-1 bg-red-600 text-white rounded-full text-sm font-medium mb-4">
+              Parcours usager
             </span>
             <h2 id="journey-heading" className="text-2xl md:text-3xl font-bold text-gray-900">
               Comment ça se passe en pratique ?
@@ -220,25 +204,21 @@ export default function SolutionPage() {
               {[
                 {
                   step: 1,
-                  icon: "👀",
                   title: "Je vois le PAV",
                   desc: "La signalétique me guide au premier regard. Les couleurs sont claires, les pictogrammes universels.",
                 },
                 {
                   step: 2,
-                  icon: "📱",
                   title: "Je scanne si besoin",
                   desc: "En cas de doute, je scanne le QR code. Une vidéo courte me montre exactement quoi faire.",
                 },
                 {
                   step: 3,
-                  icon: "✅",
                   title: "Je trie correctement",
                   desc: "Je dépose mes déchets dans la bonne poubelle. Geste simple, résultat concret.",
                 },
                 {
                   step: 4,
-                  icon: "🎮",
                   title: "J'apprends en jouant",
                   desc: "En rentrant chez moi, je teste mes connaissances avec un mini-jeux rapide.",
                 },
@@ -253,7 +233,6 @@ export default function SolutionPage() {
 
                   {/* Content */}
                   <div className="bg-white rounded-xl p-5 border border-gray-200 shadow-sm md:text-center">
-                    <span className="text-2xl block mb-2">{item.icon}</span>
                     <h3 className="font-bold text-gray-900 mb-1">{item.title}</h3>
                     <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
                   </div>
@@ -268,8 +247,8 @@ export default function SolutionPage() {
       <section className="py-12 bg-gradient-to-br from-red-50 to-red-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <span className="inline-flex items-center gap-2 px-3 py-1 bg-red-600 text-white rounded-full text-sm font-medium mb-4">
-              <span>🎮</span> Notre innovation
+            <span className="inline-flex items-center px-3 py-1 bg-red-600 text-white rounded-full text-sm font-medium mb-4">
+              Notre innovation
             </span>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
               Une approche gamifiée pour ancrer les réflexes
@@ -284,23 +263,22 @@ export default function SolutionPage() {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
-                icon: "🎯",
                 title: "Apprendre sans s'en rendre compte",
                 desc: "Les mini-jeux permettent de mémoriser les règles de tri de façon naturelle, sans effort conscient.",
               },
               {
-                icon: "⚡",
                 title: "Feedback immédiat",
                 desc: "Chaque action donne un retour instantané, renforçant les bons comportements et corrigeant les erreurs.",
               },
               {
-                icon: "🔄",
                 title: "Répétition espacée",
                 desc: "Des sessions courtes et régulières ancrent durablement les connaissances dans la mémoire.",
               },
             ].map((item, idx) => (
               <div key={idx} className="bg-white rounded-2xl p-6 shadow-sm border border-red-200">
-                <span className="text-4xl block mb-4">{item.icon}</span>
+                <div className="w-10 h-10 rounded-full bg-red-600 text-white flex items-center justify-center font-bold mb-4">
+                  {idx + 1}
+                </div>
                 <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
                 <p className="text-gray-600 text-sm">{item.desc}</p>
               </div>
@@ -312,8 +290,11 @@ export default function SolutionPage() {
               href="/swipe-jeux"
               className="inline-flex items-center justify-center px-6 py-3 bg-red-600 text-white font-semibold rounded-xl hover:bg-red-700 transition-colors"
             >
-              <span>Essayer les mini-jeux</span>
-              <span className="ml-2">🎮</span>
+              Essayer les mini-jeux
+              <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
             </Link>
           </div>
         </div>
@@ -323,8 +304,8 @@ export default function SolutionPage() {
       <section className="py-16 bg-white" aria-labelledby="dashboard-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="inline-flex items-center gap-2 px-3 py-1 bg-red-600 text-white rounded-full text-sm font-medium mb-4">
-              <span>🏘️</span> Émulation collective
+            <span className="inline-flex items-center px-3 py-1 bg-red-600 text-white rounded-full text-sm font-medium mb-4">
+              Émulation collective
             </span>
             <h2 id="dashboard-heading" className="text-2xl md:text-3xl font-bold text-gray-900">
               Le Tableau de Bord Hyper-Local
@@ -343,23 +324,22 @@ export default function SolutionPage() {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
-                icon: "📍",
                 title: "Un lien au territoire",
                 desc: "Chaque quartier suit sa propre progression. « Bravo à Wazemmes qui a réduit ses déchets de 5% ce mois-ci » — un message qui ancre le geste dans un espace vécu.",
               },
               {
-                icon: "🤝",
                 title: "Une dynamique sociale",
                 desc: "Le classement entre quartiers crée une émulation positive : chacun agit pour que son cercle de vie progresse, pas par obligation, mais par appartenance.",
               },
               {
-                icon: "📈",
                 title: "Un impact mesurable",
                 desc: "La réduction des OMR est suivie en temps réel. L'usager voit concrètement comment son quartier évolue mois après mois.",
               },
             ].map((item, idx) => (
               <div key={idx} className="bg-red-50 rounded-2xl p-6 border border-red-200">
-                <span className="text-3xl block mb-4">{item.icon}</span>
+                <div className="w-10 h-10 rounded-full bg-red-600 text-white flex items-center justify-center font-bold mb-4">
+                  {idx + 1}
+                </div>
                 <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
               </div>
@@ -372,8 +352,8 @@ export default function SolutionPage() {
       <section className="py-16 bg-gray-50" aria-labelledby="calculator-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="inline-flex items-center gap-2 px-3 py-1 bg-red-600 text-white rounded-full text-sm font-medium mb-4">
-              <span>✨</span> Gratification
+            <span className="inline-flex items-center px-3 py-1 bg-red-600 text-white rounded-full text-sm font-medium mb-4">
+              Gratification
             </span>
             <h2 id="calculator-heading" className="text-2xl md:text-3xl font-bold text-gray-900">
               Le Calculateur de Seconde Vie
@@ -392,41 +372,31 @@ export default function SolutionPage() {
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             {[
               {
-                icon: "🥃",
                 category: "Verre",
                 landmark: "Grand'Place de Lille",
                 equivalence: "5 jours d'éclairage",
                 detail: "Le verre trié permet de régénérer de l'énergie qui alimente l'éclairage emblématique de la Grand'Place — un symbole de Lille que chacun connaît.",
-                color: "from-red-400 to-red-500",
-                bg: "bg-red-50",
-                border: "border-red-200",
               },
               {
-                icon: "🌱",
                 category: "Biodéchets",
                 landmark: "Bus V'Lille / Métro",
                 equivalence: "150 m³ de biogaz",
                 detail: "Les biodéchets collectés génèrent du biogaz utilisable pour alimenter les transports en commun V'Lille et le réseau métro de la métropole.",
-                color: "from-red-400 to-red-500",
-                bg: "bg-green-50",
-                border: "border-green-200",
               },
               {
-                icon: "🧱",
                 category: "Plastique",
                 landmark: "Parc de la Citadelle",
                 equivalence: "25 bancs publics",
                 detail: "Le plastique recyclé est transformé en mobilier urbain — comme les bancs du Parc de la Citadelle, un espace vert emblématique de Lille.",
-                color: "from-red-400 to-red-500",
-                bg: "bg-red-50",
-                border: "border-red-200",
               },
             ].map((item, idx) => (
-              <div key={idx} className={`bg-white rounded-2xl border ${item.border} shadow-sm overflow-hidden`}>
-                <div className={`h-1.5 bg-gradient-to-r ${item.color}`} />
+              <div key={idx} className="bg-white rounded-2xl border border-red-200 shadow-sm overflow-hidden">
+                <div className="h-1.5 bg-gradient-to-r from-red-400 to-red-500" />
                 <div className="p-6">
                   <div className="flex items-center gap-3 mb-3">
-                    <span className={`text-2xl w-12 h-12 ${item.bg} rounded-xl flex items-center justify-center`}>{item.icon}</span>
+                    <div className="w-12 h-12 bg-red-600 text-white rounded-xl flex items-center justify-center font-bold">
+                      {idx + 1}
+                    </div>
                     <div>
                       <span className="text-xs font-bold tracking-widest uppercase text-gray-400">{item.category}</span>
                       <p className="text-lg font-bold text-gray-900">{item.equivalence}</p>
@@ -440,7 +410,6 @@ export default function SolutionPage() {
           </div>
 
           <div className="max-w-3xl mx-auto bg-red-50 rounded-2xl p-8 border border-red-200 text-center">
-            <span className="text-3xl block mb-3">✨</span>
             <h3 className="font-bold text-gray-900 mb-3">L&apos;usager voit, l&apos;usager agit</h3>
             <p className="text-gray-700 leading-relaxed">
               La gratification ne repose pas sur des points abstraits : elle se traduit en <strong>équivalents visibles</strong> dans le quotidien de la MEL. Chaque déchet bien trié devient un jour d&apos;éclairage sur la Grand&apos;Place, un trajet en bus, un banc dans un parc. Le geste acquiert un sens immédiat — et c&apos;est ce qui ancre le comportement sur le long terme.
@@ -461,9 +430,13 @@ export default function SolutionPage() {
           <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/swipe-jeux"
-              className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-gray-900 bg-white hover:bg-gray-100 rounded-lg transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-medium text-gray-900 bg-white hover:bg-gray-100 rounded-lg transition-colors"
             >
-              Jouer aux mini-jeux 🎮
+              Jouer aux mini-jeux
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
             </Link>
           </div>
         </div>

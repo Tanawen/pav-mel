@@ -17,7 +17,6 @@ export default function NearbyList({
   if (places.length === 0) {
     return (
       <div className="card-mel p-6 text-center">
-        <span className="text-2xl block mb-2" aria-hidden="true">🔍</span>
         <p className="text-sm text-[var(--gray-500)]">
           Aucun point de dépôt avec ce filtre.
         </p>
@@ -47,11 +46,11 @@ export default function NearbyList({
                 <span
                   className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-xs font-semibold ${
                     p.type === "verre"
-                      ? "bg-emerald-100 text-emerald-700"
-                      : "bg-amber-100 text-amber-700"
+                      ? "bg-red-100 text-red-700"
+                      : "bg-red-100 text-red-700"
                   }`}
                 >
-                  {p.type === "verre" ? "🍾 Verre" : "🗑️ Déchèterie"}
+                  {p.type === "verre" ? "Verre" : "Déchèterie"}
                 </span>
                 <span className="text-xs text-[var(--gray-400)] font-medium">
                   {formatDistance(p.distance)}
@@ -67,10 +66,12 @@ export default function NearbyList({
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
-              className="shrink-0 p-2 text-[var(--mel-blue)] hover:bg-[var(--mel-blue-light)] rounded-md transition-colors"
+              className="shrink-0 p-2 text-[var(--mel-red)] hover:bg-[var(--mel-red-light)] rounded-md transition-colors"
               aria-label={`Itinéraire vers ${p.name}`}
             >
-              🗺️
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+              </svg>
             </a>
           </div>
         </div>

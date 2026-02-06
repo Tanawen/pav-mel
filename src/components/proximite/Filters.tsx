@@ -10,30 +10,26 @@ interface FiltersProps {
 const OPTIONS: {
   value: FilterType;
   label: string;
-  icon: string;
   active: string;
   idle: string;
 }[] = [
   {
     value: "all",
     label: "Tous",
-    icon: "📍",
     active: "bg-[var(--gray-800)] text-white",
     idle: "bg-[var(--gray-100)] text-[var(--gray-700)] hover:bg-[var(--gray-200)]",
   },
   {
     value: "verre",
     label: "PAV Verre",
-    icon: "🍾",
-    active: "bg-emerald-600 text-white",
-    idle: "bg-emerald-50 text-emerald-700 hover:bg-emerald-100",
+    active: "bg-red-600 text-white",
+    idle: "bg-red-50 text-red-700 hover:bg-red-100",
   },
   {
     value: "decheterie",
     label: "Déchèteries",
-    icon: "🗑️",
-    active: "bg-amber-500 text-white",
-    idle: "bg-amber-50 text-amber-700 hover:bg-amber-100",
+    active: "bg-red-500 text-white",
+    idle: "bg-red-50 text-red-700 hover:bg-red-100",
   },
 ];
 
@@ -46,11 +42,10 @@ export default function Filters({ filter, onChange }: FiltersProps) {
           type="button"
           onClick={() => onChange(opt.value)}
           aria-pressed={filter === opt.value}
-          className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-md text-sm font-medium transition-all ${
+          className={`inline-flex items-center px-4 py-2 rounded-md text-sm font-medium transition-all ${
             filter === opt.value ? opt.active : opt.idle
           }`}
         >
-          <span aria-hidden="true">{opt.icon}</span>
           {opt.label}
         </button>
       ))}

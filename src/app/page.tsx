@@ -67,7 +67,7 @@ export default function Home() {
           <div className="card-mel p-5 mb-5 bg-[var(--mel-red-light)] border-[var(--mel-red)]/30">
             <div className="flex items-center justify-between mb-2">
               <span className="text-sm font-semibold text-[var(--mel-red-dark)]">
-                <span aria-hidden="true">📈 </span>Votre progression aujourd&apos;hui
+                Votre progression aujourd&apos;hui
               </span>
               <span className="text-sm font-bold text-[var(--mel-red)]">1 / 5 actions</span>
             </div>
@@ -81,7 +81,11 @@ export default function Home() {
 
           {/* Défi du jour - maintenant en rouge */}
           <div className="card-mel p-6 bg-gradient-to-br from-[var(--mel-red-light)] to-red-100 border-[var(--mel-red)]/30 flex flex-col sm:flex-row items-start sm:items-center gap-5">
-            <span className="text-4xl" aria-hidden="true">🏆</span>
+            <div className="w-12 h-12 rounded-xl bg-[var(--mel-red)] flex items-center justify-center">
+              <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+              </svg>
+            </div>
             <div className="flex-1">
               <span className="inline-block text-xs font-bold uppercase tracking-wider text-white bg-[var(--mel-red)] px-3 py-0.5 rounded-full mb-2">
                 Défi du jour
@@ -133,22 +137,18 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
               {
-                icon: "🗑️",
                 title: "Mauvais tri",
                 desc: "Erreurs fréquentes sur ce qui va où, même avec bonne volonté.",
               },
               {
-                icon: "🚫",
                 title: "Refus en centre",
                 desc: "Un quart des collectes contaminées, coûts de traitement élevés.",
               },
               {
-                icon: "📦",
                 title: "Dépôts sauvages",
                 desc: "Encombrants et déchets abandonnés autour des PAV.",
               },
               {
-                icon: "👥",
                 title: "Publics éloignés",
                 desc: "Certains habitants ne se sentent pas concernés ou sont perdus.",
               },
@@ -157,9 +157,9 @@ export default function Home() {
                 key={index}
                 className="card-mel card-mel-interactive p-6 border-t-4 border-t-[var(--mel-red)]"
               >
-                <span className="text-3xl block mb-4" aria-hidden="true">
-                  {item.icon}
-                </span>
+                <div className="w-10 h-10 rounded-full bg-[var(--mel-red)] text-white flex items-center justify-center font-bold mb-4">
+                  {index + 1}
+                </div>
                 <h3 className="text-lg font-bold text-[var(--gray-900)] mb-2">{item.title}</h3>
                 <p className="text-sm text-[var(--gray-600)]">{item.desc}</p>
               </article>
@@ -171,7 +171,6 @@ export default function Home() {
       {/* CTA Section - fond rouge */}
       <section className="py-16 bg-mel-gradient text-white relative overflow-hidden">
         <div className="relative container-mel max-w-4xl text-center">
-          <span className="text-5xl block mb-6">🎮</span>
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Prêt à apprendre le tri ?
           </h2>
@@ -184,7 +183,10 @@ export default function Home() {
               className="btn bg-white text-[var(--mel-red)] hover:bg-white/90 text-base px-8 py-3 font-bold"
             >
               <span>Jouer maintenant</span>
-              <span>🎮</span>
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
             </Link>
             <Link
               href="/solution"

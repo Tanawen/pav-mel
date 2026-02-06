@@ -21,7 +21,7 @@ const MapView = dynamic(() => import("./MapView"), {
   loading: () => (
     <div className="w-full h-full bg-[var(--gray-100)] flex items-center justify-center">
       <div className="text-center">
-        <div className="text-3xl mb-2 animate-pulse" aria-hidden="true">🗺️</div>
+        <div className="w-8 h-8 border-2 border-[var(--mel-red)] border-t-transparent rounded-full animate-spin mx-auto mb-2" />
         <p className="text-[var(--gray-500)] text-sm">Chargement de la carte…</p>
       </div>
     </div>
@@ -255,7 +255,7 @@ export default function ProximiteClient() {
                           selectSuggestion(s);
                         }}
                       >
-                        <span aria-hidden="true">📍</span>
+                        <svg className="w-4 h-4 text-[var(--mel-red)]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" /></svg>
                         {s.label}
                       </li>
                     ))}
