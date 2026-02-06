@@ -9,6 +9,7 @@ const navItems = [
   { href: '/solution', label: 'Solution' },
   { href: '/assistant-tri', label: 'Assistant tri' },
   { href: '/proximite', label: 'Proximité' },
+  { href: '/notifications', label: 'Notifications' },
   { href: '/swipe-jeux', label: 'Mini-Jeux' },
 ];
 
